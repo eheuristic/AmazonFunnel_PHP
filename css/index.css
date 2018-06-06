@@ -1,0 +1,428 @@
+/*!
+ * CUSTOM CSS FOR INDEX PAGE
+*/
+@media screen and (max-width: 991px) {
+       
+        #text1{
+            text-align:center !important;
+            font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; 
+            font-size:44px; 
+            color:white; 
+            font-weight: 900; 
+            line-height:50px;
+        }
+        #left_first{
+            padding-top: 0px !important;
+        }
+        input[type=submit]{
+            border-radius:0;
+			 -webkit-appearance: none;
+            /*border-radius: 50px !important;*/
+        }
+        .stitched{
+            border: none !important;
+            font-weight: bold;
+            padding :0px !important;
+            padding-bottom:20px !important;
+			height:auto;
+        }
+        .manual_align_forth{
+            padding-top: 0px !important;
+        }
+        .manual_align_third{
+            padding-top: 0px !important;
+        }
+    }
+    @media screen and (min-width: 992px) {
+        
+			.stitched{
+				height:210px;
+			}
+		.mobilerow{
+			display:none;
+		}
+       
+        .responsive_show{
+            display:none;
+        }
+    }
+    .credit_font{
+        font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; 
+        font-weight: 900;
+        font-size: 25px; 
+        line-height: 30px;
+        color:white; 
+        padding-top:15px;
+    }
+#input_data_div{
+    background:url('./../images/Background3.jpg');
+    background-position: top;
+    background-attachment:fixed;
+    padding-top: 40px;
+    padding-bottom:40px;
+}
+#text1{
+    text-align:left;
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; 
+    font-size:44px; 
+    color:white; 
+    font-weight: 900; 
+    line-height:50px;
+}
+#text2{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 25px; line-height: 30px; color:white; padding-top:15px;
+}
+#condition{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; line-height: 22px; color:white; padding-top: 10px; padding-bottom:10px;color:#999;
+}
+#left_main{
+    padding: 0px 0px 0px;
+    border-radius: 5px;
+    box-shadow: -2px -2px 6px 0 rgba(0,0,0,.1);
+    background-color: #525e6c;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-top:15px;
+    padding-bottom:15px;
+}
+#left_first{
+    text-align: center; padding-top: 20px; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 26px; line-height: 26px; color:#462f28;
+}
+#left_second{
+    text-align: center; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 16px; line-height: 20px; color:#462f28;
+}
+.header-heading{
+    text-shadow: 2px 2px 4px #462f28; color: #b6e000
+}
+#privacy_policy{
+    text-align: center; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 12px; line-height: 16px; color:#462f28;
+}
+
+/* section two */
+#second_title{
+    text-align:center; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size:36px; color:#462f28; font-weight: 700; line-height:46px; margin-top:90px !important;
+	padding-bottom:20px;
+}
+.image_position{
+    margin-left: -40px;
+}
+#second_section_bottle_title{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 20px; line-height: 22px; color:#b6e000;
+}
+.second_section_bottle_title{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 20px; line-height: 22px; color:#b6e000; padding:20px;
+}
+#second_section_bottle_desctiption{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 16px; line-height: 20px; color:#69696e; font-weight: bold;
+}
+.second_section_bottle_desctiption{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 16px; line-height: 20px; color:#69696e; 
+}
+#third_main{
+    background-color:#b6e000; padding-top:40px; padding-bottom:40px;
+}
+#third_title{
+    text-align:center; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size:36px; color:#462f28; font-weight: 700; line-height:46px;padding:20px 0px;
+}
+.third_data{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 18px; line-height: 22px; color:#ffffff; text-align:center;padding:20px 0px;
+}
+#third_last{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 14px; line-height: 20px; color:#462f28;
+}
+.manual_align_third, .manual_align_forth{
+        padding-top: 22px;
+}
+
+@media (max-width: 320px){
+    #input_data_div{
+	padding-top:18px;
+	padding-bottom:20px;
+	}
+	#left_main{
+	padding-bottom:0px;
+	}
+        
+	.credit_font,#text1{
+		font-size:20px!important;
+		line-height:22px!important;
+		padding-bottom:10px!important;
+		padding-top:0px!important;
+	}
+	.mobilerow{
+	display:show;
+	}
+	.responsive_show{
+	display:none;
+	}
+       .responsive_hide{
+	display:none;
+	}
+	#second_title{
+	    font-size:24px;
+	    line-height: 28px;
+	}
+	.second_section_bottle_title{
+	    font-size: 16px;
+	}
+	#third_title{
+	    font-size: 21px;
+	    padding-bottom:10px;
+	}
+	.third_data{
+        font-size: 13px;
+        line-height: 14px;
+		height:140px;
+	}
+	.third_last{
+        font-size: 13px;
+	}
+	.stitched{
+	    padding-bottom: 10px !important;
+	}
+	#forth_main{
+	    padding-top: 25px !important;
+	}
+	#forth_title{
+	    line-height: 26px !important;
+        font-size: 22px !important;
+	}
+	#forth_sub_title{
+        font-size: 12px !important;
+        line-height: 16px !important;
+	}
+	.amazone_review{
+	    padding-top: 0px !important;
+	}
+	.forth_detail{
+	    font-size: 17px !important;
+	}
+        ul.checkout-bar{
+            font-size:14px!important;
+        }
+        .gif{
+            margin-top: 0%!important;
+        }
+        .search_db{
+             font-size:20px!important;
+line-height:25px!important;
+/*background-color: red;*/
+        }
+        .search_content{
+            font-size:12px!important;
+
+        }
+        .wait{
+            font-size: 14px!important;
+        }
+        
+}
+@media (max-width: 576px){
+    .mobilerow{
+	display:show;
+	}
+	.responsive_show{
+	display:none;
+	}
+       .responsive_hide{
+	display:none;
+	}
+     ul.checkout-bar{
+            font-size:16px!important;
+        }
+        .gif{
+            margin-top: 0%!important;
+        }
+        .search_db{
+             font-size:22px!important;
+line-height:28px!important;
+/*background-color: red;*/
+        }
+        .search_content{
+            font-size:14px!important;
+
+        }
+        .wait{
+            font-size: 16px!important;
+        }
+    .stitched {
+        padding: 0px;
+        line-height: 0em;
+        border: 0px dashed #fff;
+        border-radius: 0px;
+		height:auto;
+   }
+   #input_data_div{
+	padding-top:18px;
+	padding-bottom:20px;
+	}
+	#left_main{
+	padding-bottom:0px;
+	}
+	.hw_head_left{
+	margin-top:0px;
+	}
+	#second_title{
+	font-size:24px;
+	line-height:30px;
+	}
+	.credit_font,#text1{
+		font-size:20px!important;
+		line-height:22px!important;
+		padding-bottom:10px!important;
+		padding-top:0px!important;
+	}
+		.responsive_show{
+	display:none;
+	}
+
+   .stitched:hover {
+        padding: 0px;
+        line-height: 0em;
+        border: 0px dashed #b6e000;
+        border-radius: 0px;
+        /*background:#FFF;*/
+   }
+}
+.stitched{
+    text-align:center;
+}
+#forth_main{
+    background-color: white; padding-top:100px; padding-bottom:30px;
+}
+#forth_title{
+    text-align:center; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size:36px; color:#462f28; font-weight: 700; line-height:46px;
+}
+#forth_sub_title{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 20px; line-height: 22px; color:#b6e000; padding-top: 10px; padding-bottom:20px;
+}
+.forth_detail_title{
+    font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 16px; line-height: 20px; color:#69696e;font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 16px; line-height: 20px; color:#69696e;
+}
+.forth_detail{
+    padding-top: 15px !important; padding-bottom: 7px !important; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif;  font-size: 16px; line-height: 20px; color:#69696e;
+}
+.amazone_review{
+    padding-top:5px !important;
+    padding-bottom: 20px;
+}
+
+       @-ms-viewport{
+  width: device-width;
+}
+
+body {
+	
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link {
+	color: #462F29;
+	text-decoration: underline;
+}
+a:visited {
+	text-decoration: underline;
+	color: #462F27;
+}
+a:hover {
+	text-decoration: none;
+	color: #B7E101;
+}
+a:active {
+	text-decoration: underline;
+	color: #462F29;
+}
+
+input  {
+	 color: rgb(191, 191, 191);
+}
+
+input[type=text],input[type=email], select {
+  width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18pt;
+    color: #b6e000;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+input[type=text],input[type=email]:focus {
+    /*border: 3px solid #b6e000 !important;*/
+} 
+
+input[type=submit] {
+    width: 100%;
+    background-color: #462f28;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    /*border-radius: 4px;*/
+    border-radius:0;
+    cursor: pointer;
+	font-size: 16pt;
+	 -webkit-appearance: none;
+}
+
+input[type=submit]:hover {
+    background-color: #b6e000;
+	 -webkit-appearance: none;
+	
+}
+
+.div {
+    border-radius: 5px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	}
+	
+
+.frame {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+}
+
+.zoomin img {
+  height: 200px;
+  width: 200px;
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+.zoomin img:hover {
+  width: 210px;
+  height: 210px;
+}
+
+.stitched {
+     padding: 20px;
+    line-height: 1.3em;
+    border: 2px dashed #fff;
+    border-radius: 10px;
+
+}
+
+.stitched:hover {
+     padding: 20px;
+    line-height: 1.3em;
+    border: 2px dashed #b6e000;
+    border-radius: 10px;
+	background:#FFF;
+}
+.img-responsive {
+   margin: 0 auto;
+}
+.row{margin: 0px !important; }
+
+.vert-align{
+    font-family: arial;
+    font-size: 12px;
+}

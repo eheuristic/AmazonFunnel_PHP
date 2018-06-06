@@ -1,0 +1,24 @@
+[23-Aug-2017 12:13:06 UTC] PHP Notice:  Undefined variable: serviceUrl in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/GetOrderSample.php on line 45
+[23-Aug-2017 12:24:14 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 12:25:35 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 12:40:17 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 12:40:21 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 12:42:57 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 12:45:15 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 12:47:14 UTC] PHP Fatal error:  Class 'DOMDocument' not found in /home/special1/public_html/src/MarketplaceWebServiceOrders/Model/GetOrderResponse.php on line 199
+[23-Aug-2017 15:11:30 UTC] PHP Notice:  Undefined variable: OrderId in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/GetOrderSample.php on line 80
+[23-Aug-2017 15:25:54 UTC] PHP Notice:  Undefined variable: OrderId in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/GetOrderSample.php on line 80
+[23-Aug-2017 15:30:46 UTC] PHP Catchable fatal error:  Object of class MarketplaceWebServiceOrders_Model_GetOrderResponse could not be converted to string in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/GetOrderSample2.php on line 99
+[23-Aug-2017 15:44:27 UTC] PHP Notice:  Undefined variable: OrderId in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/GetOrderSample.php on line 80
+[24-Aug-2017 11:00:56 UTC] PHP Parse error:  syntax error, unexpected '>' in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/GetOrderSample2.php on line 100
+[24-Aug-2017 11:10:26 UTC] PHP Notice:  Undefined variable: serviceUrl in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrderItemsSample2.php on line 45
+[24-Aug-2017 11:19:01 UTC] PHP Fatal error:  Call to undefined function json_decode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 103
+[24-Aug-2017 11:39:50 UTC] PHP Fatal error:  Cannot use try without catch or finally in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 131
+[24-Aug-2017 11:41:26 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 108
+[24-Aug-2017 11:42:22 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 108
+[24-Aug-2017 11:42:25 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 108
+[24-Aug-2017 11:42:46 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 108
+[24-Aug-2017 11:43:33 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 108
+[24-Aug-2017 11:44:16 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 108
+[24-Aug-2017 11:51:10 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 106
+[24-Aug-2017 12:16:02 UTC] PHP Fatal error:  Call to undefined function json_encode() in /home/special1/public_html/src/MarketplaceWebServiceOrders/Samples/ListOrdersSample2.php on line 106
