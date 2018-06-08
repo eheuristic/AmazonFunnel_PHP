@@ -41,23 +41,26 @@
 
 </style>
 <?php
-if (basename($_SERVER['PHP_SELF']) != 'index.php') {
+$url = $_SERVER['REQUEST_URI'];
+$url_array = explode("/", $url);
+if (($url_array[1] == 'index') || ($url_array[1] == null)):
+else:
     ?>
     <div class="row text-center" style="background-color:white">
         <div class="col-lg-4 col-md-6 col-sm-12 col-lg-offset-1">
-            <img class="img-responsive" id="img-head-desk" src="logo-header-01.png"/>
-            <img class="img-responsive" id="img-head-mob" src="logo-header-02.png"/>
+            <img class="img-responsive" id="img-head-desk" src="<?= IMG_URL ?>logo-header-01.png"/>
+            <img class="img-responsive" id="img-head-mob" src="<?= IMG_URL ?>logo-header-02.png"/>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 col-lg-offset-3 hw_head_left">
             <div class="row">
                 <div class="col-12">
-                    <img src="phone.png" class="img-responsive1"/>
+                    <img src="<?= IMG_URL ?>phone.png" class="img-responsive1"/>
                     <span class="h4 contact"><a href="tel:+1844-987-FREE" style="text-decoration:none;">844-987-FREE</a></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <img src="email.png" class="img-responsive1"/>
+                    <img src="<?= IMG_URL ?>email.png" class="img-responsive1"/>
                     <span class="h4 contact"><a href="mailto:free@potentorganics.com" style="text-decoration:none;/*color:#462F28!important;*/">free@potentorganics.com</a></span>
                 </div>
             </div>
@@ -65,5 +68,6 @@ if (basename($_SERVER['PHP_SELF']) != 'index.php') {
     </div>
 
     <?php
-}
+endif;
+
 ?>

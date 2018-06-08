@@ -1,9 +1,6 @@
 <?php
 
-//require_once 'config/DbContext.php';
-require_once 'models/index.php';
-
-class IndexController{
+class SearchController{
     public $title = "Potent Organics";
     public $is_mobile;
     public function __construct($is_mobile) {
@@ -11,7 +8,7 @@ class IndexController{
     }
     public function index(){
         $is_mobile = $this->is_mobile;
-        require_once 'pages/index/index.php';
+        require_once 'pages/search/index.php';
         return $this->title;
     }
 }

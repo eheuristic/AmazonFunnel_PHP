@@ -1,0 +1,213 @@
+
+
+
+
+/*!
+ * CUSTOM CSS FOR PRODUCTS PAGE
+*/
+@media only screen and (max-width: 991px) {
+   
+    .center_display{
+        text-align: center !important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    
+    .product_image_height{
+        /*height:33%; */
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 599px){
+    .product_bar {
+        max-width: 95% !important;
+        padding-top: 5%;
+        margin-bottom: 5%;
+    }
+    ul.checkout-bar:before {
+        width: 30% !important;
+    }
+    
+    #product_main_title{
+         font-size:27px!important;
+        margin-bottom: 15PX!important;  
+        font-weight: 700;
+        line-height: 35px!important;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 767px){
+    .product_bar {
+        max-width: 99% !important;
+        padding-top: 5%;
+        margin-bottom: 5%;
+    }
+    ul.checkout-bar:before {
+        width: 30% !important;
+        margin-left:50%;
+    }
+    ul.checkout-bar li {
+        display: inline-block;
+        /*text-align: left;*/
+        /*margin: 50px -6px 0 !important;*/
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .product_bar {
+        max-width: 85% !important;
+        padding-top: 20%;
+        margin-bottom: 5%;
+    }
+    ul.checkout-bar:before {
+        width: 30% !important;
+    }
+    ul.checkout-bar li {
+        display: inline-block;
+        margin: 50px -1px 0 !important;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .product_bar {
+        max-width: 770px !important;
+        margin-top: 90px !important;
+        margin-bottom: 13%;
+    }
+}
+    
+
+    
+body {
+	
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+input  {
+	 color: rgb(191, 191, 191);
+}
+
+input[type=text], select {
+  width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 3px solid rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16pt;
+    color: #b6e000;
+    background-color:  #EAEAEA;
+}
+
+
+input[type=text]:focus {
+    border: 3px solid #b6e000 !important;
+} 
+
+input[type=submit], #submit_product {
+    width: 100%;
+    background-color:  #999;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-size: 14pt;
+}
+
+input[type=submit], #submit_product:hover {
+    background-color: #b6e000;
+	
+}
+
+.div {
+    border-radius: 5px;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	}
+
+.error {
+	font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 16px; line-height: 22px; color: #FF4040; padding-top: 10px; padding-bottom:10px;
+	}
+	
+	.stitched {
+     padding: 20px;
+    line-height: 1.3em;
+    border: 2px dashed #462f28;
+    border-radius: 10px;
+}
+
+
+input[type="radio"] {
+    display:none;
+}
+
+input[type="radio"] + label {
+    color:#462f28;
+    font-family:Arial, sans-serif;
+}
+
+input[type="radio"] + label span {
+    display:inline-block;
+    width:50px;
+    height:50px;
+    margin:10px;
+    vertical-align:middle;
+    background:url(./../check_radio_sheet2.png) -100px top no-repeat;
+    cursor:pointer;
+}
+
+input[type="radio"]:checked + label span {
+    background:url(./../check_radio_sheet2.png) -151px top no-repeat;
+}
+
+.w3-green, .w3-hover-green:hover {
+    color: #fff!important;
+    background-color: #B6E000!important;
+    padding-left: 15px;
+    font-weight: 400;
+    font-size: 15px;
+	border-radius: 25px;
+	
+}
+/*.w3.css:108
+.w3-container, .w3-panel {
+    padding: 0.01em 16px;
+}
+w3.css:2
+*, *:before, *:after {
+    box-sizing: inherit;
+}*/
+
+.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+    color: #000!important;
+    background-color: #f1f1f1!important;
+	border-radius: 25px;
+}
+
+.w3-green1 {    color: #fff!important;
+    background-color: #B6E000!important;
+    padding-left: 15px;
+    font-weight: 400;
+    font-size: 15px;
+	border-radius: 25px;
+}
+.w3-light-gray1 {    color: #000!important;
+    background-color: #f1f1f1!important;
+	border-radius: 25px;
+}
+.w3-light-grey1 {    color: #000!important;
+    background-color: #f1f1f1!important;
+	border-radius: 25px;
+}
+#product_main_title{
+ font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size:30px;text-transform:uppercase; color:#462f28; font-weight: 700; line-height:46px;
+}
+
+.product_name_style{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #462f28;
+}

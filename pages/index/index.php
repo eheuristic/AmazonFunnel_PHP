@@ -1,6 +1,6 @@
 <!--remove css-->
-<link rel="stylesheet" type="text/css" href="css/index.css?ver=6">
-
+<body>
+    <link rel="stylesheet" type="text/css" href="css/index.css?ver=6">
 
 <?php
 $_SESSION['email'] = '';
@@ -25,7 +25,7 @@ include BASE_PATH . "/libs/fb-chat.php";
             margin-top: 0px;
             margin-right: 0px;
             margin-bottom: 0px;
-            background-image: url(backgroundnew2.jpg);
+            background-image: url(images/backgroundnew2.jpg);
             background-position:top;
             background-repeat:no-repeat;
             /*background-size: 100%; //added*/
@@ -178,14 +178,14 @@ if ($is_mobile == 'false') {
         <tr>
             <td align="center" valign="middle" style="background:white;"><table width="1000" border="0">
                     <tr>
-                        <td width="743" rowspan="2" valign="bottom"><img src="logo-header-01.png" width="399" height="81" /></td>
-                        <td width="39" height="40" align="center" valign="bottom" style="font-family:arial; font-size:18px; color:#462f28;"><img src="phone.png" width="30" height="30" /></td>
+                        <td width="743" rowspan="2" valign="bottom"><img src="<?= BASE_URL."images/" ?>logo-header-01.png" width="399" height="81" /></td>
+                        <td width="39" height="40" align="center" valign="bottom" style="font-family:arial; font-size:18px; color:#462f28;"><img src="<?= BASE_URL."images/" ?>phone.png" width="30" height="30" /></td>
                         <td width="204" align="left" valign="bottom" style="text-align:left; font-family:arial; font-size:18px; color:#462f28 ;">
                             <a href="tel:844-987-FREE">844-987-FREE</a>
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" valign="middle" style="font-family:arial; font-size:18px; color:#462f28 ;"><img src="email.png" width="30" height="30" /></td>
+                        <td align="center" valign="middle" style="font-family:arial; font-size:18px; color:#462f28 ;"><img src="<?= BASE_URL."images/" ?>email.png" width="30" height="30" /></td>
                         <td width="204" align="center" valign="middle" style="text-align:right; font-family:arial; font-size:18px; color:#462f28 ;">
                             <a href="mailto:info@potentorganics.com" target="_top">info@potentorganics.com</a>
                         </td>
@@ -211,8 +211,9 @@ if ($is_mobile == 'false') {
                                             </tr>
                                             <tr>
                                                 <td align="center" valign="middle"><div>
-
-                                                        <form action="search.php">
+                                                        <!--change-->
+                                                        <form action="/search/index" method="POST">
+                                                        <!--<form action="search.php">-->
 
                                                             <input type="text" id="phone" name="phone" placeholder="Phone Number" required="" pattern="\d*" title="Only 0-9 digit allowed." />
 
@@ -284,7 +285,7 @@ if ($is_mobile == 'false') {
                                             </tr>
                                             <tr>
                                                 <td align="center" valign="middle"><div>
-
+                                                        <!--change-->
                                                         <form action="search.php">
 
                                                             <input type="text" id="phone" name="phone" placeholder="Phone Number" required="" pattern="\d*" title="Only 0-9 digit allowed." />
@@ -406,7 +407,3 @@ if ($is_mobile == 'false') {
 </script>-->
 <!-- Facebook chat End-->
 
-
-<div>
-    <h1>Hello baby, don't say maybe!</h1>
-</div>

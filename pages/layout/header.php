@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="head">
@@ -7,10 +8,7 @@
     
     <link rel="stylesheet" href="<?= CSS_URL ?>style.css">
 <!--remove css-->
-<link rel="stylesheet" type="text/css" href="css/facebook_design.css"/>       
-        <link rel="icon" type="image/png" href="<?= IMG_URL ?>favicon.png">
+<link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>facebook_design.css"/>       
+      
+    <link rel="icon" type="image/png" href="<?= IMG_URL ?>favicon.png">
 </head>
-<body>
-
-    
-romikEhs

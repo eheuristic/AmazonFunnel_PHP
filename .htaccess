@@ -1,0 +1,12 @@
+# Disable directory listing
+Options -Indexes
+
+# URL Rewrite
+RewriteEngine on
+#RewriteRule ^(Models/|css/|images/|libs/|pages/) - [F,L,NC]
+#RewriteRule ^([^/.]+)/?$ index.php
+#RewriteRule ^([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2
+#RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter=$3
+RewriteRule ^([^/.]+)/?$ index.php?controller=$1&action=index
+RewriteRule ^([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2
+RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter=$3

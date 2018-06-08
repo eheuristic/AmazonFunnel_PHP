@@ -1,11 +1,9 @@
 <?php
 const BASE_PATH = __DIR__;
 require_once 'config/main.php';
-
 //url for controller manage
 $url = $_SERVER['REQUEST_URI'];
 $url_array = explode("/", $url);
-
 if ($url_array[1] == null):
     $controller = DEFAULT_CONTROLLER;
     $action = DEFAULT_ACTION;
@@ -25,7 +23,7 @@ endif;
 <?php include_once 'pages/layout/header.php';  ?>
 <?php // include_once("config/router.php"); ?>
 <?php require_once ("config/router.php");?>
+<?php include_once 'pages/layout/footer.php'; ?>
 <script type="text/javascript">
        document.title = "<?php echo $title; ?>";
 </script>
-<?php include_once 'pages/layout/footer.php'; ?>
