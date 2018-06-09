@@ -3,7 +3,8 @@
         <ul class="checkout-bar">
 
             <?php
-            $file_name = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
+//            $file_name = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);//commented on 5-6-2018 a
+            $file_name = $url_array[1];
             $step2class = '';
             $step3class = '';
             $step4class = '';

@@ -163,5 +163,5 @@ class DBConnection {
 
 }
 
-$dbh = new DBConnection();
+ $dbh = new DBConnection();
 ?> 

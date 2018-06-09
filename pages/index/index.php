@@ -212,7 +212,7 @@ if ($is_mobile == 'false') {
                                             <tr>
                                                 <td align="center" valign="middle"><div>
                                                         <!--change-->
-                                                        <form action="/search/index" method="POST">
+                                                        <form action="/search" method="POST">
                                                         <!--<form action="search.php">-->
 
                                                             <input type="text" id="phone" name="phone" placeholder="Phone Number" required="" pattern="\d*" title="Only 0-9 digit allowed." />

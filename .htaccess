@@ -1,12 +1,21 @@
-# Disable directory listing
-Options -Indexes
-
-# URL Rewrite
-RewriteEngine on
-#RewriteRule ^(Models/|css/|images/|libs/|pages/) - [F,L,NC]
-#RewriteRule ^([^/.]+)/?$ index.php
+## Disable directory listing
+#Options -Indexes
+#
+## URL Rewrite
+#RewriteEngine on
+##RewriteRule ^(Models/|css/|images/|libs/|pages/) - [F,L,NC]
+#RewriteRule ^([^/.]+)/?$ index.php?controller=$1&action=index
 #RewriteRule ^([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2
 #RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter=$3
-RewriteRule ^([^/.]+)/?$ index.php?controller=$1&action=index
-RewriteRule ^([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2
-RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter=$3
+#RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter1=$3,&parameter2=$4
+#RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter1=$3,&parameter2=$4,&parameter3=$5
+##RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/([^/.]+)/([^/.]+)/([^/.]+)/?$ index.php?controller=$1&action=$2&parameter1=$3,&parameter2=$4,&parameter3=$6
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [NC]
+</IfModule>

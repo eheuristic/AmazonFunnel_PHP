@@ -154,12 +154,12 @@ input[type="radio"] + label span {
     height:50px;
     margin:10px;
     vertical-align:middle;
-    background:url(./../check_radio_sheet2.png) -100px top no-repeat;
+    background:url('../images/products/check_radio_sheet2.png') -100px top no-repeat;
     cursor:pointer;
 }
 
 input[type="radio"]:checked + label span {
-    background:url(./../check_radio_sheet2.png) -151px top no-repeat;
+    background:url('../images/products/check_radio_sheet2.png') -151px top no-repeat;
 }
 
 .w3-green, .w3-hover-green:hover {

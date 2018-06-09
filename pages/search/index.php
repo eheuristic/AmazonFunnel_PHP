@@ -1,4 +1,6 @@
+
 <?php 
+        
 include BASE_PATH . "/libs/hotjar.php"; 
 include BASE_PATH . "/libs/fb-chat.php";
 ?>
@@ -237,15 +239,10 @@ if ($last_order > 0) {
     if (in_array("false", $error_array)) {
         //echo "<script type='text/javascript'>window.location.href = 'products.php?id=" . $temp_asin[0] . "&otherid=" . $temp_order[0] . "&email=" . $email . "&phone=" . $phone . "&name=" . $firstname . "';</script>";
         ?><!--change--> <?php
-//        header("Location: products.php?id=" . $temp_asin[0] . "&otherid=" . $temp_order[0] . "&email=" . $email . "&phone=" . $phone . "&name=" . $firstname . "");//change [S-E] comment
-        if(!isset($_SESSION)): session_start(); endif;
-        $_SESSION['asign_id']=$temp_asin[0];
-        $_SESSION['otherid'] = $temp_order[0];
-        $_SESSION['user_email'] = $email;
-        $_SESSION['user_phone'] = $phone;
-        $_SESSION['user_name'] = $firstname;
-        header("Location:../products");
-        exit;
+        
+//        header("Location:../products.php?id=" . $temp_asin[0] . "&otherid=" . $temp_order[0] . "&email=" . $email . "&phone=" . $phone . "&name=" . $firstname . "");//change [S-E] comment
+        header("Location:../products/index/" . $temp_asin[0] . "/" . $temp_order[0] . "/" . $email . "/" . $phone . "/" . $firstname );
+
     } else {
         //echo "<script type='text/javascript'>window.location.href = 'step_2_3.php?otherid=" . $temp_order[0] . "&other=" . $purchase_date . "&asin=" . $temp_asin[0] . "';</script>";
         ?><!--change--> <?php
@@ -258,10 +255,10 @@ if ($last_order > 0) {
     //echo "<script type='text/javascript'>window.location.href = 're-enter-email.php?firstname=$firstname&phone=$phone';</script>";
         ?><!--change--> <?php
 //    header("Location: re-enter-email.php?firstname=$firstname&phone=$phone");
-        if(!isset($_SESSION)): session_start(); endif;
-        $_SESSION['firstname']=$firstname;
-        $_SESSION['phone'] = $phone;
-    header("Location:../re-enter-email");
+//        if(!isset($_SESSION)): session_start(); endif;
+//        $_SESSION['firstname']=$firstname;
+//        $_SESSION['phone'] = $phone;
+    header("Location:../re-enter-email/index/".$firstname."/".$phone);
     exit;
 }
 

@@ -1,6 +1,7 @@
 <?php
 const BASE_PATH = __DIR__;
 require_once 'config/main.php';
+
 //url for controller manage
 $url = $_SERVER['REQUEST_URI'];
 $url_array = explode("/", $url);
@@ -21,7 +22,6 @@ endif;
 
 
 <?php include_once 'pages/layout/header.php';  ?>
-<?php // include_once("config/router.php"); ?>
 <?php require_once ("config/router.php");?>
 <?php include_once 'pages/layout/footer.php'; ?>
 <script type="text/javascript">

@@ -42,9 +42,9 @@ $url_array = explode("/",$url);
 if ($url_array[1] == null || $url_array[1] == 'index' ):
 else:
     ?>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>bootstrap.min.css">
+    <script src="<?= JS_URL ?>jquery.min.js"></script>
+    <script src="<?= JS_URL ?>bootstrap.min.js"></script>
     <?php
 endif;
 ?>

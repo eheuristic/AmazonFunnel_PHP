@@ -1,4 +1,9 @@
-    <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>re-enter.css?ver=2">
+<?php 
+$url = $_SERVER['REQUEST_URI'];
+$url_array = explode("/", $url);
+?>
+
+<link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>re-enter.css?ver=2">
     <?php 
     include BASE_PATH . "/libs/hotjar.php";
     include BASE_PATH . "/libs/fb-chat.php";
@@ -35,11 +40,14 @@
 
                         <?php
                         // Get form submitted value (Get method)
-                        if(!isset($_SESSION)): session_start(); endif;
-                        $firstname = $_SESSION['firstname'];
-                        $phone = $_SESSION['phone'];
-                        unset($_SESSION['phone']);
-                        unset($_SESSION['firstname']);
+                        // remove
+//                        if(!isset($_SESSION)): session_start(); endif;
+//                        $firstname = $_SESSION['firstname'];
+//                        $phone = $_SESSION['phone'];
+//                        unset($_SESSION['phone']);
+//                        unset($_SESSION['firstname']);
+                        $firstname = $url_array[3];
+                        $phone = $url_array[4];
 
                         echo '<input type="hidden" id="name" name="firstname" value="' . $firstname . '">';
                         echo '<input type="hidden" id="phone" name="phone"    value="' . $phone . '">';
