@@ -22,8 +22,12 @@ endif;
 
 
 <?php include_once 'pages/layout/header.php';  ?>
+
 <?php require_once ("config/router.php");?>
-<?php include_once 'pages/layout/footer.php'; ?>
+
+<?php if($url_array[1] == "index" || $url_array[1] == null ): else: include_once 'pages/layout/footer.php'; endif; ?>
+
+<!--change title per page-->
 <script type="text/javascript">
        document.title = "<?php echo $title; ?>";
 </script>

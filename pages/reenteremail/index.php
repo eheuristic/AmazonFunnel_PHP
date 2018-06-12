@@ -64,4 +64,4 @@ $url_array = explode("/", $url);
                 </div>
             </div>
         </div>
-    
+    <?php include_once BASE_PATH."/libs/footer.php"; ?>

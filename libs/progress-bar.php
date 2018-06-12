@@ -23,7 +23,7 @@
               z-index: 99;
               }
               ul.checkout-bar li:nth-child(2):before {
-              content:url("<?= IMG_URL ?>"check3.png);
+              content:url('.IMG_URL.'check3.png);
 
 
               }
@@ -77,7 +77,7 @@
                 echo ' <style>
  
 ul.checkout-bar li:nth-child(2):before {
-  content:url("<?= IMG_URL ?>"check3.png);
+  content:url('.IMG_URL .'check3.png);
   
 }
 
@@ -111,11 +111,11 @@ ul.checkout-bar li:before {
  background-color: red;
  }
 ul.checkout-bar li:nth-child(2):before {
-  content:url("<?= IMG_URL ?>"check3.png);
+  content:url('. IMG_URL .'check3.png);
   
 }
 ul.checkout-bar li:nth-child(3):before {
-    content:url("<?= IMG_URL ?>"x3.png);
+    content:url('. IMG_URL .'x3.png);
     background:red!important;
     border:2px solid white;
 }
@@ -140,11 +140,11 @@ ul.checkout-bar li:nth-child(5):before {
  background-color: red;
  }
 ul.checkout-bar li:nth-child(2):before {
-  content:url("<?= IMG_URL ?>"check3.png);
+  content:url('. IMG_URL .'check3.png);
   
 }
 ul.checkout-bar li:nth-child(3):before {
-    content:url("<?= IMG_URL ?>"x3.png);
+    content:url('. IMG_URL .'x3.png);
     background:red!important;
     border:2px solid white;
 }
@@ -195,15 +195,15 @@ ul.checkout-bar li:nth-child(5):before {
                     left:5%!important;
                     width:104%;}
 ul.checkout-bar li:nth-child(2):before {
-  content:url("<?= IMG_URL ?>"check3.png);
+  content:url('. IMG_URL .'check3.png);
 }
 ul.checkout-bar li:nth-child(3):before {
-    content:url("<?= IMG_URL ?>"check3.png);
+    content:url('. IMG_URL .'check3.png);
 
  
 }
 ul.checkout-bar li:nth-child(4):before {
-      content:url("<?= IMG_URL ?>"check3.png);
+      content:url('. IMG_URL .'check3.png);
 
 }
 ul.checkout-bar li:nth-child(5):before {
@@ -225,10 +225,10 @@ ul.checkout-bar li.visited:after{
                     left:5%!important;
                     width:104%;}
 ul.checkout-bar li:nth-child(2):before {
-  content:url("<?= IMG_URL ?>"check3.png);
+  content:url('. IMG_URL .'check3.png);
 }
 ul.checkout-bar li:nth-child(3):before {
-    content:url("<?= IMG_URL ?>"check3.png);
+    content:url('. IMG_URL .'check3.png);
 
  
 }

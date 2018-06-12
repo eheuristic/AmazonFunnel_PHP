@@ -17,7 +17,6 @@ const DB_USERNAME = "root";
 const DB_PASSWORD = "";
 const DB_NAME = "special1_db";
 
-/*take from E:\Projects\amazonfunnel\public_html\include\config.php 3-6 [S]*/
 ob_start();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -37,8 +36,7 @@ if ($detect->isMobile()) {
 
 ?>
 <?php
-$url = $_SERVER['REQUEST_URI'];
-$url_array = explode("/",$url);
+$url_array = explode("/",$_SERVER['REQUEST_URI']);
 if ($url_array[1] == null || $url_array[1] == 'index' ):
 else:
     ?>

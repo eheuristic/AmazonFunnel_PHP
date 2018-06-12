@@ -8,60 +8,63 @@ $DbCon = new DBConnection();
 $url = $_SERVER['REQUEST_URI'];
 $url_array = explode("/", $url);
 
-//include_once 'config/main.php';
-$product_data = array();
-$promotional_data_all = array();
+            $product_data = array();
+            $promotional_data_all = array();
 
-$name = array();
-$asin = array();
-$order_data = array();
-$product_id = array();
-$promo_id = array();
-$final_product_array = array();
-$temp_order_array = array();
+            $name = array();
+            $asin = array();
+            $order_data = array();
+            $product_id = array();
+            $promo_id = array();
+            $final_product_array = array();
+            $temp_order_array = array();
 
 unset($_SESSION['like_val']);
 //$email = isset($_GET['email']) ? $_GET['email'] : '';
 $email = $url_array[5];
 $email = (isset($_SESSION['email']) && empty($email)) ? $_SESSION['email'] : $email;
+
 //$phone1 = (isset($_GET['phone'])) ? $_GET['phone'] : '';
 $phone1 = $url_array[6];
+$_SESSION['phone'] = $phone1; /* set session */
 
-$_SESSION['phone'] = $phone1;
 $name1 = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 $purchase_date = '';
 $delivery_date = '';
-$_SESSION['email']=$email;
+$_SESSION['email'] = $email;
 $user_id = '';
 
 $email = str_replace("'", "", $email);
 $phone1 = str_replace("'", "", $phone1);
-$order_id = str_replace("'", "", $order_id);
+//$order_id = str_replace("'", "", $order_id);
 $name1 = str_replace("'", "", $name1);
 $selc = "SELECT order_id,product_id,order_date,ASIN,mail FROM promo1";
 $allPro = $DbCon->select($selc);
 $allPro = json_decode(json_encode($allPro), 1);
 
-include_once BASE_PATH.'/libs/MarketplaceWebServiceOrders/Samples/ListOrdersSample.php';
-include_once BASE_PATH.'/libs/MarketplaceWebServiceOrders/Model/GetOrderResult.php';
+include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Samples/ListOrdersSample.php';
+include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Model/GetOrderResult.php';
 
 $request->setBuyerEmail($email);
+
 $order_data_all = invokeListOrders($service, $request);
 
 if (isset($order_data_all['status'])) {
     //echo "<script type='text/javascript'>window.location.href = 'error.php?error=1';</script>";
 //    header("Location: error.php?error=1");
-    header("Location:".BASE_URL."error");
+    header("Location:" . BASE_URL . "error");
     exit;
 }
 if (count($order_data_all) > 0) {
 
-    include_once BASE_PATH.'/libs/MarketplaceWebServiceOrders/Model/ListOrderItemsRequest.php';
-    include_once BASE_PATH.'/libs/MarketplaceWebServiceOrders/Samples/ListOrderItemsSample.php';
-    
-    for ($i = 0; $i < count($order_data_all); $i++) {
-        $orders = $order_data_all->ListOrdersResult->Orders->Order;
+    include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Model/ListOrderItemsRequest.php';
+    include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Samples/ListOrderItemsSample.php';
 
+//    echo "<pre>";
+    for ($i = 0; $i < count($order_data_all); $i++) {
+
+        $orders = $order_data_all->ListOrdersResult->Orders->Order;
+//        if ($i == count($order_data_all)): exit; else: echo var_dump($orders);  endif; 
         for ($k = 0; $k < count($orders); $k++) {
             $request->setAmazonOrderId($orders[$k]->AmazonOrderId);
             $promotional_data_all[] = invokeListOrderItems($service, $request);
@@ -86,7 +89,8 @@ if (count($order_data_all) > 0) {
             $delivery_date_temp = json_decode(json_encode($orders[$z]->EarliestShipDate), 1);
             $delivery_date_local_temp = strtotime($delivery_date_temp[0]);
             $final_delivery_date_temp = date('Y-m-d', $delivery_date_local_temp);
-            $temp_product_id = $promotional_data_all[$z]['ListOrderItemsResult']['OrderItems']['OrderItem'][$y]['OrderItemId'];
+//            $temp_product_id = $promotional_data_all[$z]['ListOrderItemsResult']['OrderItems']['OrderItem'][$y]['OrderItemId'];
+            $temp_product_id = $promotional_data_all[$z]['ListOrderItemsResult']['OrderItems']['OrderItem']['OrderItemId'];
             if (!in_array($temp_product_id, $temp_order_array[$z]) && isset($purchase_date[0]) && isset($delivery_date[0]) && array_key_exists('ASIN', $promotional_data_all[$z]['ListOrderItemsResult']['OrderItems']['OrderItem'])) {
                 if (isset($purchase_date[0]) && isset($promotional_data_all[$z]['ListOrderItemsResult']['OrderItems']['OrderItem']['PromotionIds']['PromotionId'])) {
                     $temp_order_array[] = array(
@@ -158,7 +162,7 @@ if (count($order_data_all) > 0) {
       print_r($temp_order_array);
       echo "</pre>";
      */
-      foreach ($temp_order_array as $key => $value) {
+    foreach ($temp_order_array as $key => $value) {
         $temp_product_id = $temp_order_array[$key]['product_id'];
         $temp_asin = $temp_order_array[$key]['asin'];
         $temp_order_id = $temp_order_array[$key]['order_id'];
@@ -186,42 +190,35 @@ if (count($order_data_all) > 0) {
   echo "after temp Data::::::::::::::::::";
   print_r($temp_order_array);
   echo "</pre>"; */
-  $temp_order_array = array_values($temp_order_array);
-  $asins = array();
-  $index = 0;
-  foreach ($temp_order_array as $product) {
+$temp_order_array = array_values($temp_order_array);
+$asins = array();
+$index = 0;
+foreach ($temp_order_array as $product) {
 
     if (in_array($product['asin'], $asins)) {
         unset($temp_order_array[$index]);
     } else
-    $asins[] = $product['asin'];
+        $asins[] = $product['asin'];
     $index++;
 }
 $product_data = $temp_order_array;
 //exit;
 if (count($product_data) <= 0) {
     //echo "<script type='text/javascript'>window.location.href = 'step_2_3.php';</script>";
-    header("Location: step_2_3.php");
+    header("Location:../not-eligible");
     exit;
 }
 ?>
 <?php
-
-//remove
-    //include_once "hotjar.php";
-    //include_once 'header.php';
-    //include_once 'fb-chat.php';
-    //include_once 'headcodes.php';
-include BASE_PATH . "/libs/hotjar.php"; 
+include BASE_PATH . "/libs/hotjar.php";
 include BASE_PATH . "/libs/fb-chat.php";
 include BASE_PATH . "/libs/headcodes.php";
-
 ?>
 <body class="" onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png')">
     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'/>
 
-        <?php include BASE_PATH . '/libs/header-content.php'; ?>
-        <?php include BASE_PATH . '/libs/progress-bar.php'; ?>
+    <?php include BASE_PATH . '/libs/header-content.php'; ?>
+    <?php include BASE_PATH . '/libs/progress-bar.php'; ?>
 
 
 
@@ -232,7 +229,8 @@ include BASE_PATH . "/libs/headcodes.php";
     </div>
     <div class="row">
         <!--change-->
-        <form action="experience.php" action="get">
+        <!--<form action="experience/index/" action="post">-->
+        <form action="<?= BASE_URL ?>experi/index" action="post">
             <div class="col-lg-8 col-md-12 col-sm-12 col-lg-offset-2" id="">
                 <div class="row text-center">
                     <?php
@@ -247,8 +245,8 @@ include BASE_PATH . "/libs/headcodes.php";
                         }
                         if (empty($product_data[$c]['asin']))
                             continue;
-                        if (file_exists(IMG_URL .'products/' . $product_data[$c]['asin'] . '.png')) {
-                            $img = IMG_URL .'products/' . $product_data[$c]['asin'] . '.png';
+                        if (file_exists(IMG_URL . 'products/' . $product_data[$c]['asin'] . '.png')) {
+                            $img = IMG_URL . 'products/' . $product_data[$c]['asin'] . '.png';
                             ?>
                             <div class="col-lg-<?= $class ?> col-md-12 col-sm-12">
                                 <div class="row product_image_height">
@@ -269,7 +267,7 @@ include BASE_PATH . "/libs/headcodes.php";
                             </div>
                             <?php
                         } else {
-                            $img = IMG_URL .'products/default.jpg';
+                            $img = IMG_URL . 'products/default.jpg';
                             ?>
                             <div class="col-lg-4 col-md-12 col-sm-12">
                                 <div class="row">
@@ -299,167 +297,166 @@ include BASE_PATH . "/libs/headcodes.php";
             </div>
         </form>
     </div>
-</div>
-<!--change-->
-<!--<script src="jquery.min.js"></script>-->
-<script>
+    <?php include_once BASE_PATH . "/libs/footer.php"; ?>
+    <!--change-->
+    <!--<script src="jquery.min.js"></script>-->
+    <script>
 
-    var window_width = screen.width;
-    console.log(window_width);
-    var asin = '';
-    var order_id = '';
-    var product_id = '';
-    var product_name = '';
-    var promo_id = '';
-    var delivery_date = '';
-    var purchase_date = '';
-    var email = '';
-    var user_name = '';
-    var phone = '';
-    var checkbox_id = '';
-    $("#submit_product").click(function (e) {
-        if ($('#img-val').val() == '')
-        {
-            e.preventDefault();
-            $('#display_error').html("Please Select Product!");
-            $('#display_error').css("color", "red");
-        }
-        else {
-            $('#display_error').html("");
-//            change
-            window.location.href = "experience.php";
-        }
-    });
-    $("input[id^=selected]").click(function (e) {
-        $('#display_error').html("");
-        $('#img-val').val('132');
-        asin = $(this).data("asin");
-        order_id = $(this).data("order_id");
-        product_id = $(this).data("product_id");
-        product_name = $(this).data("product_name");
-        promo_id = $(this).data("promo_id");
-        delivery_date = $(this).data("delivery_date");
-        purchase_date = $(this).data("purchase_date");
-        email = '<?php echo $email; ?>';
-        user_name = '<?php echo $name1; ?>';
-        phone = '<?php echo $phone1; ?>';
-        console.log(purchase_date);
-//        change
-        $.post("/libs/ajax.php", {'action': 'product_data', 'phone': phone, 'user_name': user_name, 'email': email, 'asin': asin, 'order_id': order_id, 'product_id': product_id, 'product_name': product_name, 'promo_id': promo_id, 'delivery_date': delivery_date, 'purchase_date': purchase_date})
-        .done(function (data) {
-            console.log(data);
+        var window_width = screen.width;
+        console.log(window_width);
+        var asin = '';
+        var order_id = '';
+        var product_id = '';
+        var product_name = '';
+        var promo_id = '';
+        var delivery_date = '';
+        var purchase_date = '';
+        var email = '';
+        var user_name = '';
+        var phone = '';
+        var checkbox_id = '';
+        $("#submit_product").click(function (e) {
+            if ($('#img-val').val() == '')
+            {
+                e.preventDefault();
+                $('#display_error').html("Please Select Product!");
+                $('#display_error').css("color", "red");
+            } else {
+                $('#display_error').html("");
+                //            change
+                window.location.href = "<?= BASE_URL ?>experience/index/";
+            }
         });
+        $("input[id^=selected]").click(function (e) {
+            $('#display_error').html("");
+            $('#img-val').val('132');
+            asin = $(this).data("asin");
+            order_id = $(this).data("order_id");
+            product_id = $(this).data("product_id");
+            product_name = $(this).data("product_name");
+            promo_id = $(this).data("promo_id");
+            delivery_date = $(this).data("delivery_date");
+            purchase_date = $(this).data("purchase_date");
+            email = '<?php echo $email; ?>';
+            user_name = '<?php echo $name1; ?>';
+            phone = '<?php echo $phone1; ?>';
+            console.log(purchase_date);
+            //        change
+            $.post("/libs/ajax.php", {'action': 'product_data', 'phone': phone, 'user_name': user_name, 'email': email, 'asin': asin, 'order_id': order_id, 'product_id': product_id, 'product_name': product_name, 'promo_id': promo_id, 'delivery_date': delivery_date, 'purchase_date': purchase_date})
+                    .done(function (data) {
+                        console.log(data);
+                    });
 
-    });
-    $(document).ready(function () {
-        if ($('.bottle_select').is(':checked'))
-        {
-            checkbox_id = $('.bottle_select').attr('id');
-            console.log('ajax_call_success.');
-            console.log(checkbox_id);
-            $("#" + checkbox_id).trigger("click");
+        });
+        $(document).ready(function () {
+            if ($('.bottle_select').is(':checked'))
+            {
+                checkbox_id = $('.bottle_select').attr('id');
+                console.log('ajax_call_success.');
+                console.log(checkbox_id);
+                $("#" + checkbox_id).trigger("click");
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        function MM_swapImgRestore() { //v3.0
+            var i, x, a = document.MM_sr;
+            for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
+                x.src = x.oSrc;
         }
-    });
-</script>
-<script type="text/javascript">
-            function MM_swapImgRestore() { //v3.0
-                var i, x, a = document.MM_sr;
-                for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
-                    x.src = x.oSrc;
-            }
-            function MM_preloadImages() { //v3.0
-                var d = document;
-                if (d.images) {
-                    if (!d.MM_p)
-                        d.MM_p = new Array();
-                    var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
-                    for (i = 0; i < a.length; i++)
-                        if (a[i].indexOf("#") != 0) {
-                            d.MM_p[j] = new Image;
-                            d.MM_p[j++].src = a[i];
-                        }
+        function MM_preloadImages() { //v3.0
+            var d = document;
+            if (d.images) {
+                if (!d.MM_p)
+                    d.MM_p = new Array();
+                var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
+                for (i = 0; i < a.length; i++)
+                    if (a[i].indexOf("#") != 0) {
+                        d.MM_p[j] = new Image;
+                        d.MM_p[j++].src = a[i];
                     }
-                }
-
-            function MM_findObj(n, d) { //v4.01
-                var p, i, x;
-                if (!d)
-                    d = document;
-                if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
-                    d = parent.frames[n.substring(p + 1)].document;
-                    n = n.substring(0, p);
-                }
-                if (!(x = d[n]) && d.all)
-                    x = d.all[n];
-                for (i = 0; !x && i < d.forms.length; i++)
-                    x = d.forms[i][n];
-                for (i = 0; !x && d.layers && i < d.layers.length; i++)
-                    x = MM_findObj(n, d.layers[i].document);
-                if (!x && d.getElementById)
-                    x = d.getElementById(n);
-                return x;
             }
+        }
 
-            function MM_swapImage() { //v3.0
-                var i, j = 0, x, a = MM_swapImage.arguments;
-                document.MM_sr = new Array;
-                for (i = 0; i < (a.length - 2); i += 3)
-                    if ((x = MM_findObj(a[i])) != null) {
-                        document.MM_sr[j++] = x;
-                        if (!x.oSrc)
-                            x.oSrc = x.src;
-                        x.src = a[i + 2];
-                    }
-                }
-            </script>
-            <script type="text/javascript">
-            function MM_swapImgRestore() { //v3.0
-                var i, x, a = document.MM_sr;
-                for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
-                    x.src = x.oSrc;
+        function MM_findObj(n, d) { //v4.01
+            var p, i, x;
+            if (!d)
+                d = document;
+            if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+                d = parent.frames[n.substring(p + 1)].document;
+                n = n.substring(0, p);
             }
-            function MM_preloadImages() { //v3.0
-                var d = document;
-                if (d.images) {
-                    if (!d.MM_p)
-                        d.MM_p = new Array();
-                    var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
-                    for (i = 0; i < a.length; i++)
-                        if (a[i].indexOf("#") != 0) {
-                            d.MM_p[j] = new Image;
-                            d.MM_p[j++].src = a[i];
-                        }
-                    }
-                }
+            if (!(x = d[n]) && d.all)
+                x = d.all[n];
+            for (i = 0; !x && i < d.forms.length; i++)
+                x = d.forms[i][n];
+            for (i = 0; !x && d.layers && i < d.layers.length; i++)
+                x = MM_findObj(n, d.layers[i].document);
+            if (!x && d.getElementById)
+                x = d.getElementById(n);
+            return x;
+        }
 
-            function MM_findObj(n, d) { //v4.01
-                var p, i, x;
-                if (!d)
-                    d = document;
-                if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
-                    d = parent.frames[n.substring(p + 1)].document;
-                    n = n.substring(0, p);
+        function MM_swapImage() { //v3.0
+            var i, j = 0, x, a = MM_swapImage.arguments;
+            document.MM_sr = new Array;
+            for (i = 0; i < (a.length - 2); i += 3)
+                if ((x = MM_findObj(a[i])) != null) {
+                    document.MM_sr[j++] = x;
+                    if (!x.oSrc)
+                        x.oSrc = x.src;
+                    x.src = a[i + 2];
                 }
-                if (!(x = d[n]) && d.all)
-                    x = d.all[n];
-                for (i = 0; !x && i < d.forms.length; i++)
-                    x = d.forms[i][n];
-                for (i = 0; !x && d.layers && i < d.layers.length; i++)
-                    x = MM_findObj(n, d.layers[i].document);
-                if (!x && d.getElementById)
-                    x = d.getElementById(n);
-                return x;
+        }
+    </script>
+    <script type="text/javascript">
+        function MM_swapImgRestore() { //v3.0
+            var i, x, a = document.MM_sr;
+            for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
+                x.src = x.oSrc;
+        }
+        function MM_preloadImages() { //v3.0
+            var d = document;
+            if (d.images) {
+                if (!d.MM_p)
+                    d.MM_p = new Array();
+                var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
+                for (i = 0; i < a.length; i++)
+                    if (a[i].indexOf("#") != 0) {
+                        d.MM_p[j] = new Image;
+                        d.MM_p[j++].src = a[i];
+                    }
             }
+        }
 
-            function MM_swapImage() { //v3.0
-                var i, j = 0, x, a = MM_swapImage.arguments;
-                document.MM_sr = new Array;
-                for (i = 0; i < (a.length - 2); i += 3)
-                    if ((x = MM_findObj(a[i])) != null) {
-                        document.MM_sr[j++] = x;
-                        if (!x.oSrc)
-                            x.oSrc = x.src;
-                        x.src = a[i + 2];
-                    }
+        function MM_findObj(n, d) { //v4.01
+            var p, i, x;
+            if (!d)
+                d = document;
+            if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+                d = parent.frames[n.substring(p + 1)].document;
+                n = n.substring(0, p);
+            }
+            if (!(x = d[n]) && d.all)
+                x = d.all[n];
+            for (i = 0; !x && i < d.forms.length; i++)
+                x = d.forms[i][n];
+            for (i = 0; !x && d.layers && i < d.layers.length; i++)
+                x = MM_findObj(n, d.layers[i].document);
+            if (!x && d.getElementById)
+                x = d.getElementById(n);
+            return x;
+        }
+
+        function MM_swapImage() { //v3.0
+            var i, j = 0, x, a = MM_swapImage.arguments;
+            document.MM_sr = new Array;
+            for (i = 0; i < (a.length - 2); i += 3)
+                if ((x = MM_findObj(a[i])) != null) {
+                    document.MM_sr[j++] = x;
+                    if (!x.oSrc)
+                        x.oSrc = x.src;
+                    x.src = a[i + 2];
                 }
-            </script>
+        }
+    </script>

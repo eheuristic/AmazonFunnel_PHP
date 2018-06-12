@@ -1,0 +1,272 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 10, 2017, 8:50:35 PM
+    Author     : Kuldip vadalia
+*/
+
+    @media only screen and (max-width: 991px) {
+        #img-head-mob {
+            display: block
+        }
+        #img-head-desk {
+            display: none
+        }
+        .hw_head_left{text-align: center !important;}
+    }
+    @media only screen and (min-width: 300px) and (max-width: 599px) {
+        .checkout-15-days {
+            max-width: 79% !important;
+            padding-top: 5%;
+            margin-bottom: 5%;
+        }
+    }
+     @media only screen and (min-width: 600px) and (max-width: 767px) {
+        .checkout-15-days {
+            max-width: 67% !important;
+            padding-top: 5%;
+            margin-bottom: 5%;
+        }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .checkout-15-days {
+            max-width: 67% !important;
+            padding-top: 25%;
+            margin-bottom: 5%;
+        }
+    }
+    
+        @media only screen and (max-width: 991px) {
+        #days-img{display: none;}
+        .days-footer{background: none !important;color: #000000 !important;}
+        .days-text {text-align: center !important;}
+        .days-head {text-align: center !important;}
+        .days-order {text-align: center !important;}
+        .days-details {text-align: center !important;}
+        .days-bottom {text-align: center !important;}
+        .days-footer {text-align: center !important;}
+    }
+    
+        .error {
+            font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 22px;
+            color: #FF4040;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        @-ms-viewport {
+            width: 500px;
+        }
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+        a:link {
+            color: #462F29;
+            text-decoration: underline;
+        }
+        a:visited {
+            text-decoration: underline;
+            color: #462F27;
+        }
+        a:hover {
+            text-decoration: none;
+            color: #B7E101;
+        }
+        a:active {
+            text-decoration: underline;
+            color: #462F29;
+        }
+        .div {
+            display: table;
+            max-width: 500px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Form */
+        
+        input {
+            color: rgb(191, 191, 191);
+        }
+        input[type=text],
+        select {
+            width: 60%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 3px solid rgba(255, 255, 255, 0);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16pt;
+            color: #b6e000;
+            background-color: #EAEAEA;
+        }
+        input[type=text]:focus {
+            border: 3px solid #b6e000 !important;
+        }
+        input[type=submit] {
+            width: 30%;
+            background-color: #999;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16pt;
+        }
+        input[type=submit]:hover {
+            background-color: #b6e000;
+        }
+        /* Radio */
+        
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"] + label {
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: #462f28;
+        }
+        input[type="radio"] + label span {
+            display: inline-block;
+            width: 19px;
+            height: 19px;
+            margin: 10px 10px 10px 10px;
+            vertical-align: middle;
+            background: url(check_radio_sheet.png) -38px top no-repeat;
+            cursor: pointer;
+        }
+        input[type="radio"]:checked + label span {
+            background: url(check_radio_sheet.png) -57px top no-repeat;
+        }
+        .w3-green,
+        .w3-hover-green:hover {
+            color: #fff!important;
+            background-color: #B6E000!important;
+            padding-left: 15px;
+            font-weight: 400;
+            font-size: 15px;
+            border-radius: 25px;
+        }
+       
+        .w3-light-grey,
+        .w3-hover-light-grey:hover,
+        .w3-light-gray,
+        .w3-hover-light-gray:hover {
+            color: #000!important;
+            background-color: #f1f1f1!important;
+            border-radius: 25px;
+        }
+        .w3-green1 {
+            color: #fff!important;
+            background-color: #B6E000!important;
+            padding-left: 15px;
+            font-weight: 400;
+            font-size: 15px;
+            border-radius: 25px;
+        }
+        .w3-light-gray1 {
+            color: #000!important;
+            background-color: #f1f1f1!important;
+            border-radius: 25px;
+        }
+        .w3-light-grey1 {
+            color: #000!important;
+            background-color: #f1f1f1!important;
+            border-radius: 25px;
+        }
+        /* DivTable.com */
+        
+        .divTable {
+            display: table;
+            width: 100%;
+        }
+        .divTableRow {
+            display: table-row;
+        }
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+        }
+        .divTableCell,
+        .divTableHead {
+            border: 0px solid #999999;
+            display: table-cell;
+            padding: 3px 10px;
+        }
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+            font-weight: bold;
+        }
+        .divTableFoot {
+            background-color: #EEE;
+            display: table-footer-group;
+            font-weight: bold;
+        }
+        .divTableBody {
+            display: table-row-group;
+        }
+        /* Progress Bar */
+        
+       
+        .img-responsive {
+		
+        margin: 0 auto;
+    }
+    
+    .days-text {
+        font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 20px; line-height: 22px; color:#b6e000; padding-top: 15px;
+    }
+    .days-head {
+        text-align:left; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size:36px; color:#462f28; font-weight: 700; line-height:46px;margin-top: 4% !important;
+    }
+    .days-order {
+        font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 14px; line-height: 22px; color:#462f28; padding-top: 10px; padding-bottom:10px;
+    }
+    .days-details{
+        font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; line-height: 22px; color:#462f28; padding-top: 10px; padding-bottom:10px;
+    }
+    .days-bottom{
+        font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 20px; line-height: 22px; color:#b6e000;
+    }
+    .days-footer{
+        text-align:center; font-family:arial; font-size:12px; color: white; background-color:#462f28; line-height:60px;margin-top: 10% !important;
+    }
+    @media only screen and (min-width: 992px) {
+        #img-head-mob {
+            display: none
+        }
+        .hw_head_left{text-align: left !important;margin-top: 10px !important;}
+    }
+    @media only screen and (min-width: 992px) {
+        .checkout-15-days {
+            max-width: 80% !important;
+            margin-top: 10%;
+            margin-bottom: 13%;
+        }
+    }
+	
+	
+h1 {
+  text-align: center;
+  font-family: 'PT Sans Caption', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 20px 0;
+  color: #777;
+}
+
+
+.img-responsive {
+        margin: 0 auto;
+    }

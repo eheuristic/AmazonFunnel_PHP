@@ -113,6 +113,7 @@
        </div>
 
    </div>
+    <?php include_once BASE_PATH."/libs/footer.php"; ?>
     <script type="text/javascript">
                 function MM_swapImgRestore() { //v3.0
                     var i, x, a = document.MM_sr;

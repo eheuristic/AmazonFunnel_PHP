@@ -1,15 +1,15 @@
 <!--remove css-->
 <body>
-    <link rel="stylesheet" type="text/css" href="css/index.css?ver=6">
+    <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>index.css?ver=6">
 
 <?php
 $_SESSION['email'] = '';
-$this->title = "Potent Organics";
+//$this->title = "Potent ";
 include BASE_PATH . "/libs/hotjar.php";
 include BASE_PATH . "/libs/fb-chat.php";
-//include '../../config/main.php';
 ?>
-<?php echo ($is_mobile == "true") ? "<style> body{     background-size: 100% 144% !important; } </style>" : ""; ?>
+
+<?php echo ($is_mobile == "true") ? "<style> body{background-size: 100% 144% !important;} </style>" : ""; ?>
 <?php include BASE_PATH . '/libs/header-content.php'; ?>
 <style type="text/css">
 

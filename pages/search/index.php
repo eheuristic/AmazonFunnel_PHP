@@ -38,6 +38,7 @@ include BASE_PATH . "/libs/fb-chat.php";
         </div>
     </div>
     
+    <?php include_once BASE_PATH."/libs/footer.php"; ?>
     <!-- change -->
     <?php // include_once 'footer.php'; ?>   
     

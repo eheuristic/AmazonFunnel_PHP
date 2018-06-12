@@ -38,6 +38,19 @@ class callingAction{
                 require_once 'pages/ExperienceController.php';
                 $controller = new ExperienceController($this->is_mobile);
                 break;
+            case "shipping-info":
+                require_once 'pages/ShippinginfoController.php';
+                $controller = new ShippinginfoController($this->is_mobile);
+                break;
+            case "15-days-not-passed":
+                require_once 'pages/DaysnotpassedController.php';
+                $controller = new DaysnotpassedController($this->is_mobile);
+                break;
+            case "thankyou":
+                require_once 'pages/ThankyouController.php';
+                $controller = new ThankyouController($this->is_mobile);
+                break;
+            
             default:
                 $this->pageNotFound();
         }
