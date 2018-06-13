@@ -1,4 +1,6 @@
 <?php
+
+
 //Baseurl
 const BASE_URL = "http://amazonfunnel_latest.local/";
 const CSS_URL = "http://amazonfunnel_latest.local/css/";

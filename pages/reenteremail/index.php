@@ -1,13 +1,7 @@
-<?php 
-$url = $_SERVER['REQUEST_URI'];
-$url_array = explode("/", $url);
-?>
+
 
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>re-enter.css?ver=2">
-    <?php 
-    include BASE_PATH . "/libs/hotjar.php";
-    include BASE_PATH . "/libs/fb-chat.php";
-    ?>
+
 <body onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png')">
 
     <?php include BASE_PATH . '/libs/header-content.php'; ?>
@@ -36,7 +30,7 @@ $url_array = explode("/", $url);
                     you use to sign-in to amazon.com
                 </div>
                 <div>
-                    <form action="/search">
+                    <form action="/search" method="post">
 
                         <?php
                         // Get form submitted value (Get method)
@@ -46,8 +40,7 @@ $url_array = explode("/", $url);
 //                        $phone = $_SESSION['phone'];
 //                        unset($_SESSION['phone']);
 //                        unset($_SESSION['firstname']);
-                        $firstname = @$url_array[3];
-                        $phone = @$url_array[4];
+                        
 
                         echo '<input type="hidden" id="name" name="firstname" value="' . $firstname . '">';
                         echo '<input type="hidden" id="phone" name="phone"    value="' . $phone . '">';

@@ -33,7 +33,7 @@ $like = isset($_SESSION['like']) ? $_SESSION['like'] : '';
 /*if (empty($PostalCode) || empty($City) || empty($AddressLine1) || empty($lastname) || empty($phone) || empty($order_id) || empty($asin) || empty($name) || empty($email) || empty($purchasedate)) {*/
 if (empty($order_id) || empty($asin) || empty($email) || empty($purchasedate)) {
 //    echo "<script type='text/javascript'>window.location.href = 'error.php?error=3';</script>";
-    echo "<script type='text/javascript'>window.location.href = '../error';</script>";
+    echo "<script type='text/javascript'>window.location.href = '../errors/index/3';</script>";
 }
 
 if (empty($promo_id1)) {
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($order_id) || empty($asin) || empty($email) || empty($purchasedate)) {
 //        echo "<script type='text/javascript'>window.location.href = 'error.php?error=3';</script>";
 //        change
-        echo "<script type='text/javascript'>window.location.href = '../error';</script>";
+        echo "<script type='text/javascript'>window.location.href = '../errors/index/3';</script>";    
     }
     if (!empty($like) && !empty($review)) {
         global $dbh;

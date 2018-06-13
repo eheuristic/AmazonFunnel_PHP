@@ -4,8 +4,8 @@
     
 <?php echo ($is_mobile == "true") ? "<style> body{background-size: 100% 144% !important;} </style>" : ""; ?>
 <?php 
-session_destroy();
-session_start();
+//session_destroy();
+//session_start();
 
 //include BASE_PATH . '/libs/header-content.php'; ?>
 <style type="text/css">
