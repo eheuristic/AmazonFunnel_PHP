@@ -1,16 +1,13 @@
 <!--remove css-->
 <body>
     <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>index.css?ver=6">
-
-<?php
-$_SESSION['email'] = '';
-//$this->title = "Potent ";
-include BASE_PATH . "/libs/hotjar.php";
-include BASE_PATH . "/libs/fb-chat.php";
-?>
-
+    
 <?php echo ($is_mobile == "true") ? "<style> body{background-size: 100% 144% !important;} </style>" : ""; ?>
-<?php include BASE_PATH . '/libs/header-content.php'; ?>
+<?php 
+session_destroy();
+session_start();
+
+//include BASE_PATH . '/libs/header-content.php'; ?>
 <style type="text/css">
 
     @-ms-viewport{
@@ -25,7 +22,7 @@ include BASE_PATH . "/libs/fb-chat.php";
             margin-top: 0px;
             margin-right: 0px;
             margin-bottom: 0px;
-            background-image: url(images/backgroundnew2.jpg);
+            background-image: url(<?= IMG_URL ?>backgroundnew2.jpg);
             background-position:top;
             background-repeat:no-repeat;
             /*background-size: 100%; //added*/
@@ -38,7 +35,7 @@ include BASE_PATH . "/libs/fb-chat.php";
             margin-top: 0px;
             margin-right: 0px;
             margin-bottom: 0px;
-            background-image: url(backgroundnew3.jpg);
+            background-image: url(<?= IMG_URL ?>backgroundnew3.jpg);
             background-position:top;
             background-repeat:no-repeat;
         }
@@ -173,6 +170,7 @@ include BASE_PATH . "/libs/fb-chat.php";
 
 <?php
 if ($is_mobile == 'false') {
+
     ?>
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
@@ -338,13 +336,13 @@ if ($is_mobile == 'false') {
 </center>
 
 <script>
-    var window_width = screen.width;
-    if (window_width <= 1000)
-    {
-        $('.responsive_hide').hide();
+//    var window_width = screen.width;
+//    if (window_width <= 1000)
+//    {
+//        $('.responsive_hide').hide();
         //            $('#img-head-mob').show();
         //            $('#img-head-desk').hide();
-    }
+//    }
     //        if(window_width > 1000)
     //        {
     //            $('#img-head-mob').hide();

@@ -70,7 +70,37 @@ function MM_swapImage() { //v3.0
 									<span class="error">&bull; 
                                                                             <?php
                                                                                 if(!isset($_SESSION)){  session_start();  }
-                                                                                if(isset($_SESSION['error']))
+                                                                                $url_array = explode("/", $_SERVER['REQUEST_URI']);
+                                                                                
+                                                                            if(isset($url_array[3])):
+                                                                                if(isset($url_array[3]))
+                                                                                {
+                                                                                    if($url_array[3] == 1)
+                                                                                    {
+                                                                                        $msg = 'Try after 2 Minutes.';
+                                                                                        unset($url_array[3]);
+                                                                                    }
+                                                                                    elseif ($url_array[3] == 2) 
+                                                                                    {
+                                                                                        $msg = 'You already get bottle for this Product.';
+                                                                                        unset($url_array[3]);
+                                                                                    }
+                                                                                    elseif ($url_array[3]== 3) 
+                                                                                    {
+                                                                                        $msg = 'Getting incorrect data.';
+                                                                                        unset($url_array[3]);
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        $msg = 'Have been actively using our product for 15 days or more.';
+                                                                                    }
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    $msg = 'Have been actively using our product for 15 days or more.';
+                                                                                }
+                                                                            else:
+                                                                                                                                                                if(isset($_SESSION['error']))
                                                                                 {
                                                                                     if($_SESSION['error'] == 1)
                                                                                     {
@@ -96,6 +126,8 @@ function MM_swapImage() { //v3.0
                                                                                 {
                                                                                     $msg = 'Have been actively using our product for 15 days or more.';
                                                                                 }
+
+                                                                            endif;
                                                                                 echo $msg;
                                                                             ?>
                                                                             

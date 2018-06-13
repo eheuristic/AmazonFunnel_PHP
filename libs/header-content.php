@@ -41,8 +41,7 @@
 
 </style>
 <?php
-$url = $_SERVER['REQUEST_URI'];
-$url_array = explode("/", $url);
+$url_array = explode("/", $_SERVER['REQUEST_URI']);
 if (($url_array[1] == 'index') || ($url_array[1] == null)):
 else:
     ?>

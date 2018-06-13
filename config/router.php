@@ -1,15 +1,15 @@
-  <?php
+<?php
 
+class callingAction {
 
-
-class callingAction{
     public $is_mobile;
+
     public function __construct($is_mobile) {
-        $this->is_mobile= $is_mobile;
+        $this->is_mobile = $is_mobile;
     }
-    public function callAction($controller, $action, $parameter){
-        switch ($controller)
-        {
+
+    public function callAction($controller, $action, $parameter) {
+        switch ($controller) {
             case "index":
                 require_once 'pages/IndexController.php';
                 $controller = new IndexController($this->is_mobile);
@@ -18,9 +18,9 @@ class callingAction{
                 require_once 'pages/SearchController.php';
                 $controller = new SearchController($this->is_mobile);
                 break;
-            case "error":
-                require_once 'pages/ErrorController.php';
-                $controller = new ErrorController($this->is_mobile);
+            case "errors":
+                require_once 'pages/ErrorsController.php';
+                $controller = new ErrorsController($this->is_mobile);
                 break;
             case "products":
                 require_once 'pages/ProductsController.php';
@@ -50,26 +50,28 @@ class callingAction{
                 require_once 'pages/ThankyouController.php';
                 $controller = new ThankyouController($this->is_mobile);
                 break;
-            
+
             default:
                 $this->pageNotFound();
         }
-        if(!method_exists($controller,$action)){
+        if (!method_exists($controller, $action)) {
             $this->pageNotFound();
         }
-        if($parameter){
-            $data = $controller-> { $action }($parameter);
+        if ($parameter) {
+            $data = $controller->{ $action }($parameter);
         } else {
-            $data = $controller-> { $action }();
+            $data = $controller->{ $action }();
         }
         return $data;
     }
-    public function pageNotFound(){
-            echo "404 - Page Not Found";
-            exit;
+
+    public function pageNotFound() {
+        echo "404 - Page Not Found";
+        exit;
     }
+
 }
+
 $callaction = new callingAction($is_mobile);
 $title = $callaction->callAction($controller, $action, $parameter);
-
 ?>

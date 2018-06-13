@@ -11,6 +11,11 @@ class IndexController{
     }
     public function index(){
         $is_mobile = $this->is_mobile;
+            $_SESSION['email'] = '';
+            //$this->title = "Potent ";
+            include BASE_PATH . "/libs/hotjar.php";
+            include BASE_PATH . "/libs/fb-chat.php";
+            
         require_once 'pages/index/index.php';
         return $this->title;
     }

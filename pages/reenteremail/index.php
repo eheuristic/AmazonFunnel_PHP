@@ -46,8 +46,8 @@ $url_array = explode("/", $url);
 //                        $phone = $_SESSION['phone'];
 //                        unset($_SESSION['phone']);
 //                        unset($_SESSION['firstname']);
-                        $firstname = $url_array[3];
-                        $phone = $url_array[4];
+                        $firstname = @$url_array[3];
+                        $phone = @$url_array[4];
 
                         echo '<input type="hidden" id="name" name="firstname" value="' . $firstname . '">';
                         echo '<input type="hidden" id="phone" name="phone"    value="' . $phone . '">';

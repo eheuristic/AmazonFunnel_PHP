@@ -3,11 +3,10 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>products.css?ver=3">
 
 <?php
-//getdata of url
+//getdata from url
 $DbCon = new DBConnection();
-$url = $_SERVER['REQUEST_URI'];
-$url_array = explode("/", $url);
-
+$url_array = explode("/", $_SERVER['REQUEST_URI']);
+            //declare variable
             $product_data = array();
             $promotional_data_all = array();
 
@@ -19,7 +18,7 @@ $url_array = explode("/", $url);
             $final_product_array = array();
             $temp_order_array = array();
 
-unset($_SESSION['like_val']);
+            if(isset($_SESSION['like_val'])): unset($_SESSION['like_val']); endif;
 //$email = isset($_GET['email']) ? $_GET['email'] : '';
 $email = $url_array[5];
 $email = (isset($_SESSION['email']) && empty($email)) ? $_SESSION['email'] : $email;
@@ -27,6 +26,11 @@ $email = (isset($_SESSION['email']) && empty($email)) ? $_SESSION['email'] : $em
 //$phone1 = (isset($_GET['phone'])) ? $_GET['phone'] : '';
 $phone1 = $url_array[6];
 $_SESSION['phone'] = $phone1; /* set session */
+ echo '<pre>';
+print_r($email);
+echo var_dump($_SESSION['email']);
+echo '</pre>';
+exit;
 
 $name1 = (isset($_SESSION['name'])) ? $_SESSION['name'] : '';
 $purchase_date = '';
