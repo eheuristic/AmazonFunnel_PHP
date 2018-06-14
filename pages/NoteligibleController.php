@@ -11,14 +11,17 @@ class NoteligibleController {
 
     public function index() {
         $is_mobile = $this->is_mobile;
+//        $url_array = explode("/", $_SERVER['REQUEST_URI']);
+//        $order_id = isset($url_array[3]) ? $url_array[3] : '';
+//        $asin = isset($url_array[4]) ? $url_array[4] : '';
+        
         $shipped_date = isset($_SESSION['purchase_date']) ? $_SESSION['purchase_date'] : '';
         $shipped_date_new = '';
         if ($shipped_date !== '' && !empty($shipped_date)) {
             $shipped_date_new = date('l M d Y', $shipped_date);
-        }
+            }
         $order_id = isset($_SESSION['order_id']) ? $_SESSION['order_id'] : '';
         $asin = isset($_SESSION['asin']) ? $_SESSION['asin'] : '';
-
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
         $email = isset($_SESSION['email']) ? $_SESSION['email'] : "";

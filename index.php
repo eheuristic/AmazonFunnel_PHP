@@ -43,16 +43,17 @@ endif;
 
 <?php include_once 'pages/layout/header.php'; ?>
 <script>
-    var firstTime = localStorage.getItem("first_time");
-    if (!firstTime) {
-        localStorage.setItem("first_time", "1");
-        window.first_time = "1";
-        console.log(window.first_time);
-    } else {
-        console.log('elseeee');
-        window.first_time = "0";
-        console.log(window.first_time);
-    }
+//tesing for data storing session purpose for calling api only once                      
+//    var firstTime = localStorage.getItem("first_time");
+//    if (!firstTime) {
+//        localStorage.setItem("first_time", "1");
+//        window.first_time = "1";
+//        console.log(window.first_time);
+//    } else {
+//        console.log('elseeee');
+//        window.first_time = "0";
+//        console.log(window.first_time);
+//    }
 </script>     
 <?php require_once ("config/router.php"); ?>
 <?php if ($url_array[1] == "index" || $url_array[1] == null): else: include_once 'pages/layout/footer.php';

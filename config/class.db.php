@@ -13,7 +13,7 @@ class DBConnection {
             $this->con = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->dbname . "", $this->username, $this->password);
             return $this->con;
         } catch (PDOException $e) {
-            echo $e->getMessage(PDO::FETCH_ASSOC);
+            echo @  $e->getMessage(PDO::FETCH_ASSOC);
         }
     }
 

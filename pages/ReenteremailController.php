@@ -8,8 +8,7 @@ class ReenteremailController{
     }
     public function index(){
         $is_mobile = $this->is_mobile;
-        $url = $_SERVER['REQUEST_URI'];
-        $url_array = explode("/", $url);
+        $url_array = explode("/", $_SERVER['REQUEST_URI']);
         
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";

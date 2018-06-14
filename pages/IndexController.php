@@ -1,7 +1,6 @@
 <?php
 
 //require_once 'config/DbContext.php';
-require_once 'models/index.php';
 
 class IndexController{
     public $title = "Potent Organics";
@@ -10,7 +9,7 @@ class IndexController{
         $this->is_mobile= $is_mobile;
     }
     public function index(){
-        $is_mobile = $this->is_mobile;
+            $is_mobile = $this->is_mobile;
             $_SESSION['email'] = '';
             //$this->title = "Potent ";
             include BASE_PATH . "/libs/hotjar.php";

@@ -20,8 +20,6 @@
                 <div class="row text-center">
                     <?php
                     $img = '';
-
-
                     $class = 12 / count($product_data);
                     for ($c = 0; $c < count($product_data); $c++) {
                         $checked = 'unchecked';
@@ -85,115 +83,7 @@
     <?php include_once BASE_PATH . "/libs/footer.php"; ?>
     <!--change-->
     <!--<script src="jquery.min.js"></script>-->
-    <script>
 
-        var window_width = screen.width;
-        console.log(window_width);
-        var asin = '';
-        var order_id = '';
-        var product_id = '';
-        var product_name = '';
-        var promo_id = '';
-        var delivery_date = '';
-        var purchase_date = '';
-        var email = '';
-        var user_name = '';
-        var phone = '';
-        var checkbox_id = '';
-        $("#submit_product").click(function (e) {
-            if ($('#img-val').val() == '')
-            {
-                e.preventDefault();
-                $('#display_error').html("Please Select Product!");
-                $('#display_error').css("color", "red");
-            } else {
-                $('#display_error').html("");
-                //            change
-                window.location.href = "<?= BASE_URL ?>experience/index/";
-            }
-        });
-        $("input[id^=selected]").click(function (e) {
-            $('#display_error').html("");
-            $('#img-val').val('132');
-            asin = $(this).data("asin");
-            order_id = $(this).data("order_id");
-            product_id = $(this).data("product_id");
-            product_name = $(this).data("product_name");
-            promo_id = $(this).data("promo_id");
-            delivery_date = $(this).data("delivery_date");
-            purchase_date = $(this).data("purchase_date");
-            email = '<?php echo $email; ?>';
-            user_name = '<?php echo $name1; ?>';
-            phone = '<?php echo $phone1; ?>';
-            console.log(purchase_date);
-            //        change
-            $.post("/libs/ajax.php", {'action': 'product_data', 'phone': phone, 'user_name': user_name, 'email': email, 'asin': asin, 'order_id': order_id, 'product_id': product_id, 'product_name': product_name, 'promo_id': promo_id, 'delivery_date': delivery_date, 'purchase_date': purchase_date})
-                    .done(function (data) {
-                        console.log(data);
-                    });
-
-        });
-        $(document).ready(function () {
-            if ($('.bottle_select').is(':checked'))
-            {
-                checkbox_id = $('.bottle_select').attr('id');
-                console.log('ajax_call_success.');
-                console.log(checkbox_id);
-                $("#" + checkbox_id).trigger("click");
-            }
-        });
-    </script>
-    <script type="text/javascript">
-        function MM_swapImgRestore() { //v3.0
-            var i, x, a = document.MM_sr;
-            for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++)
-                x.src = x.oSrc;
-        }
-        function MM_preloadImages() { //v3.0
-            var d = document;
-            if (d.images) {
-                if (!d.MM_p)
-                    d.MM_p = new Array();
-                var i, j = d.MM_p.length, a = MM_preloadImages.arguments;
-                for (i = 0; i < a.length; i++)
-                    if (a[i].indexOf("#") != 0) {
-                        d.MM_p[j] = new Image;
-                        d.MM_p[j++].src = a[i];
-                    }
-            }
-        }
-
-        function MM_findObj(n, d) { //v4.01
-            var p, i, x;
-            if (!d)
-                d = document;
-            if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
-                d = parent.frames[n.substring(p + 1)].document;
-                n = n.substring(0, p);
-            }
-            if (!(x = d[n]) && d.all)
-                x = d.all[n];
-            for (i = 0; !x && i < d.forms.length; i++)
-                x = d.forms[i][n];
-            for (i = 0; !x && d.layers && i < d.layers.length; i++)
-                x = MM_findObj(n, d.layers[i].document);
-            if (!x && d.getElementById)
-                x = d.getElementById(n);
-            return x;
-        }
-
-        function MM_swapImage() { //v3.0
-            var i, j = 0, x, a = MM_swapImage.arguments;
-            document.MM_sr = new Array;
-            for (i = 0; i < (a.length - 2); i += 3)
-                if ((x = MM_findObj(a[i])) != null) {
-                    document.MM_sr[j++] = x;
-                    if (!x.oSrc)
-                        x.oSrc = x.src;
-                    x.src = a[i + 2];
-                }
-        }
-    </script>
     <script type="text/javascript">
         function MM_swapImgRestore() { //v3.0
             var i, x, a = document.MM_sr;
