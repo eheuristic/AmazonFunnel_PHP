@@ -123,7 +123,8 @@ class ProductsModel {
             return [$temp_order_array,];
         }
     }
-
+    
+    
     public function getProductData($order_data_all,$temp_order_array, $email, $allPro) {
 
         if (count($order_data_all) > 0) {
@@ -131,12 +132,16 @@ class ProductsModel {
             $rslt = ProductsModel::index($order_data_all, $temp_order_array);
             $temp_order_array = $rslt[0];
 
+
             /* echo "<pre>";
               echo "temp Data::::::::::::::::::";
               print_r($temp_order_array);
               echo "</pre>";
              */
+
+
             foreach ($temp_order_array as $key => $value) {
+
                 $temp_product_id = $temp_order_array[$key]['product_id'];
                 $temp_asin = $temp_order_array[$key]['asin'];
                 $temp_order_id = $temp_order_array[$key]['order_id'];
@@ -158,8 +163,11 @@ class ProductsModel {
                 } else {
                     unset($temp_order_array[$key]);
                 }
+
             }
         }
+
+
         /* echo "<pre>";
           echo "after temp Data::::::::::::::::::";
           print_r($temp_order_array);

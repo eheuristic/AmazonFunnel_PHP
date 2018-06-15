@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>shipping_info.css?ver=3"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=1"/>
 <script src="https://use.fontawesome.com/dc6fe16a4a.js"></script>
@@ -9,8 +10,8 @@ include(BASE_PATH.'/libs/MailChimp.php');
 use DrewM\MailChimp\MailChimp;
 ?>
 
-    <body onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png')">
-        <?php include BASE_PATH . '/libs/header-content.php'; ?>
+
+        <?php // include BASE_PATH . '/libs/header-content.php'; ?>
         <?php include BASE_PATH . '/libs/progress-bar.php'; ?>
 		<div class="row text-center">
 		<div class="title_zero">
@@ -32,7 +33,7 @@ a free bottle of the following product:
 
             <!-- <div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> -->
 			<div class="col-lg-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                <form action="<?php echo '../shipping-info/index/' . $email ?>" method="post">
+                <form action="<?php echo BASE_URL.'shipping-info/index/' . $email ?>" method="post">
                     <input type="text" id="name" name="name" placeholder="Full Name" value="<?php echo $name; ?>"  />
                     <input type="hidden" id="lastname" name="lastname" placeholder="last Name" value="<?php echo $lastname; ?>"  />
                     <input type="text" id="email" name="email" value="<?php echo $email; ?>" />
@@ -132,6 +133,6 @@ a free bottle of the following product:
             </div>
         </div>
         
-    <?php include_once BASE_PATH."/libs/footer.php"; ?>
+    <?php // include_once BASE_PATH."/libs/footer.php"; ?>
 <!--<script src="jquery.min.js"></script>-->
 <script>//document.addEventListener('contextmenu', event => event.preventDefault());</script>

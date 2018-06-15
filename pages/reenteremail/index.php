@@ -2,9 +2,9 @@
 
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>re-enter.css?ver=2">
 
-<body onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png')">
 
-    <?php include BASE_PATH . '/libs/header-content.php'; ?>
+
+    <?php // include BASE_PATH . '/libs/header-content.php'; ?>
 
     
         <div class="row" >
@@ -57,4 +57,4 @@
                 </div>
             </div>
         </div>
-    <?php include_once BASE_PATH."/libs/footer.php"; ?>
+    <?php // include_once BASE_PATH."/libs/footer.php"; ?>

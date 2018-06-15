@@ -7,7 +7,7 @@
         font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 16px; line-height: 22px; color: #FF4040; padding-top: 10px; padding-bottom:10px;
     }
 </style>
-<body onload="MM_preloadImages('fb-hover.png','twitter-hover.png')">
+
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tbody>
 		<tr>

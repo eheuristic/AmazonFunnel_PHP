@@ -124,7 +124,7 @@
     </div>
 </div>
 </div>
-<?php include_once BASE_PATH . "/libs/footer.php"; ?>
+<?php // include_once BASE_PATH . "/libs/footer.php"; ?>
 
 
 <!--<script src="jquery.min.js"></script>-->

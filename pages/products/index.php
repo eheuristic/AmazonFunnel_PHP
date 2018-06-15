@@ -1,10 +1,10 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=2"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>products.css?ver=3">
 
-<body class="" onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png')">
+
     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'/>
 
-    <?php include BASE_PATH . '/libs/header-content.php'; ?>
+    <?php // include BASE_PATH . '/libs/header-content.php'; ?>
     <?php include BASE_PATH . '/libs/progress-bar.php'; ?>
 
     <div class="row text-center">
@@ -80,7 +80,7 @@
             </div>
         </form>
     </div>
-    <?php include_once BASE_PATH . "/libs/footer.php"; ?>
+    <?php // include_once BASE_PATH . "/libs/footer.php"; ?>
     <!--change-->
     <!--<script src="jquery.min.js"></script>-->
 

@@ -1,3 +1,4 @@
+<?php $url_array = explode("/",$_SERVER['REQUEST_URI']); ?>
 <div class="row text-center">
     <div class="col-12 text-center checkout-wrap">
         <ul class="checkout-bar">

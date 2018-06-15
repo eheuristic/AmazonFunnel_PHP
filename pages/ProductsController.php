@@ -74,10 +74,10 @@ class ProductsController {
         
             $rslt = ProductsModel::getProductData($order_data_all,$temp_order_array,$email,$allPro);
             $product_data = $rslt[0];
-            
+           
         if (count($product_data) <= 0) {
             //echo "<script type='text/javascript'>window.location.href = 'step_2_3.php';</script>";
-            header("Location:../not-eligible");
+            header("Location:".BASE_URL."not-eligible");
             exit;
         }
 

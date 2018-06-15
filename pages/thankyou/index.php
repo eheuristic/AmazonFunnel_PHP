@@ -4,7 +4,7 @@
 
 
 
-    <body onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png')">
+
         <style>
             #bottle_margin img{
                 width: 120px !important;
@@ -24,7 +24,7 @@
                 display: inline;
             }
         </style>
-                <?php include BASE_PATH . '/libs/header-content.php'; ?>
+                <?php // include BASE_PATH . '/libs/header-content.php'; ?>
 
         <div class="col-12 text-center thank-text">
             Thank you! You all set now!
@@ -130,5 +130,5 @@
                         
                     </div>
             </div>-->
-<?php include_once BASE_PATH."/libs/footer.php"; ?>
+<?php // include_once BASE_PATH."/libs/footer.php"; ?>
 <!--<script src="jquery.min.js"></script>-->

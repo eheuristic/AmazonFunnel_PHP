@@ -1,10 +1,10 @@
 <?php
 //exit;
 //include_once BASE_PATH.'config/main.php';
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-//include '../config/main.php';
+//if (session_status() == PHP_SESSION_NONE) {
+//    session_start();
+//}
+include '../config/main.php';
 
 $action = $_POST['action'];
 

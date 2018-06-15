@@ -1,5 +1,4 @@
 <!--remove css-->
-<body>
     <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>index.css?ver=6">
     
 <?php echo ($is_mobile == "true") ? "<style> body{background-size: 100% 144% !important;} </style>" : ""; ?>

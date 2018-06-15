@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>font-awesome.css"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=1"/>
 
-<body onload="MM_preloadImages('fb-hover.png', 'twitter-hover.png', 'request-2-3-hover.png')">
-    <?php include BASE_PATH . '/libs/header-content.php'; ?>
+
+    <?php // include BASE_PATH . '/libs/header-content.php'; ?>
     <style>
         .title{
             font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; 
@@ -101,5 +101,5 @@
         </div>
 
     </div>
-    <?php include_once BASE_PATH . "/libs/footer.php"; ?>
+    <?php // include_once BASE_PATH . "/libs/footer.php"; ?>
     

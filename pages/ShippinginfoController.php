@@ -31,8 +31,11 @@ class ShippinginfoController {
         $State = isset($_SESSION['StateOrRegion']) ? strtoupper($_SESSION['StateOrRegion']) : '';
         $PostalCode = isset($_SESSION['PostalCode']) ? $_SESSION['PostalCode'] : '';
         $review = isset($_SESSION['review']) ? $_SESSION['review'] : '';
+//        $review = "asdf";
         $rating = isset($_SESSION['rating']) ? $_SESSION['rating'] : '';
         $like = isset($_SESSION['like']) ? $_SESSION['like'] : '';
+//        $like = "set";
+        
 
         /* if (empty($PostalCode) || empty($City) || empty($AddressLine1) || empty($lastname) || empty($phone) || empty($order_id) || empty($asin) || empty($name) || empty($email) || empty($purchasedate)) { */
         if (empty($order_id) || empty($asin) || empty($email) || empty($purchasedate)) {
@@ -44,6 +47,19 @@ class ShippinginfoController {
         if (empty($promo_id1)) {
             $promo_id1 = '-';
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $order_id = (isset($_POST['order_id']) && !empty($_POST['order_id'])) ? $_POST['order_id'] : $_SESSION['order_id'];
@@ -66,6 +82,7 @@ class ShippinginfoController {
 // CHECK IF ALREADY APPLY FOR BOTTLE (SAME ORDER)
 //23-09-2017 START
             $days_ago = date('Y-m-d', strtotime('+15 days', strtotime($purchasedate)));
+            
             if ($purchasedate < strtotime($days_ago)) {
 //        change
                 echo "<script type='text/javascript'>window.location.href = '../15-days-not-passed/index/" . $order_id . "/" . strtotime($purchasedate) . "';</script>";
@@ -78,6 +95,7 @@ class ShippinginfoController {
 //        change
                 echo "<script type='text/javascript'>window.location.href = '../errors/index/3';</script>";
             }
+          
             if (!empty($like) && !empty($review)) {
                 global $dbh;
                 $data_review = array();
@@ -90,8 +108,10 @@ class ShippinginfoController {
                 $data_review['asin'] = $dbh->sqlsafe($asin);
                 $data_review['created_at'] = $dbh->sqlsafe(date('Y-m-d h:i:s'));
 
+//                $dbh->insert('review_rating', $data_review);
                 $dbh->insert('review_rating', $data_review);
             }
+                
 //23-09-2017 END
             global $dbh;
             $data = array();
@@ -143,7 +163,39 @@ class ShippinginfoController {
 
         ?>
 
-        <?php
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <?php
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
         include BASE_PATH . "/libs/headcodes.php";
