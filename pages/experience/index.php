@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>jquery.rateyo.min.css"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=1"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>experience.css?ver=3"/>
-
 </div>
+
 <div class="col-lg-6 col-lg-offset-1 col-md-12 col-sm-12" style='padding-right:0px;'>
     <div class="col-lg-12" id="sub_title">
         Share Your Experience with Us!
@@ -111,7 +111,7 @@
                 <a id="amazon_anchor" target="_blank"> </a>
             </div>
 
-<!--<button type="button" id="amazone_link"><a href=<?php // echo "https://www.amazon.com/gp/customer-reviews/review-your-purchases?asins=$asin%3A$ratinglike#";        ?>>SHARE ON AMAZON</a></button>-->
+<!--<button type="button" id="amazone_link"><a href=<?php // echo "https://www.amazon.com/gp/customer-reviews/review-your-purchases?asins=$asin%3A$ratinglike#";         ?>>SHARE ON AMAZON</a></button>-->
         </div>
     </div>
     <div id='append_text' class="clipboard" style="text-align: center!important;"></div>
@@ -124,7 +124,3 @@
     </div>
 </div>
 </div>
-<?php // include_once BASE_PATH . "/libs/footer.php"; ?>
-
-
-<!--<script src="jquery.min.js"></script>-->

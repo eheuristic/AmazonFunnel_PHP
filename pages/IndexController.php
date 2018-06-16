@@ -13,8 +13,9 @@ class IndexController {
 
     public function index() {
         $is_mobile = $this->is_mobile;
+
         $_SESSION['email'] = '';
-    
+
         //$this->title = "Potent "; // to set title per method
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";

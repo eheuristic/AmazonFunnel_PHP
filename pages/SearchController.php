@@ -1,5 +1,4 @@
 <?php
-
 include_once "/Models/SearchModel.php";
 
 class SearchController {
@@ -16,33 +15,28 @@ class SearchController {
 
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
-        ?>
-        <?php
+//        view
         require_once 'pages/search/index.php';
+
         $firstname = @$_POST['firstname'];
 //                $firstname;
 //                nl2br("\n");
-
-
         $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
 //                $lastname;
 //                nl2br("\n");
-
         $email = $_POST['email'];
 //                $email;
 //                nl2br("\n");
-
         $phone = @$_POST['phone'];
 //                $phone;
 //                nl2br("\n");
+
         global $dbh;
 
         if (empty($phone) || empty($email)) {
             header("Location:../errors/index/3");
             exit;
         }
-
-
 
         $data['firstname'] = $dbh->sqlsafe($firstname);
         $data['lastname'] = $dbh->sqlsafe($lastname);
@@ -61,33 +55,30 @@ class SearchController {
         $_SESSION["phone"] = $phone;
         $_SESSION["desc"] = '';
 
-                        include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Samples/ListOrdersSample.php';
-                        include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Model/GetOrderResult.php';
-                        $request->setBuyerEmail($email);
+        include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Samples/ListOrdersSample.php';
+        include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Model/GetOrderResult.php';
+        $request->setBuyerEmail($email);
 
-                        //$order_data_all = ;
-                        $_SESSION['order_data_all'] = invokeListOrders($service, $request);
-                        $order_data_all = $_SESSION['order_data_all'];
+        //$order_data_all = ;
+        $_SESSION['order_data_all'] = invokeListOrders($service, $request);
+        $order_data_all = $_SESSION['order_data_all'];
 
-                        $last_order = count($order_data_all->ListOrdersResult->Orders->Order);
-
-                        
+        $last_order = count($order_data_all->ListOrdersResult->Orders->Order);
 
         if ($last_order > 0) {
 
             //declare
             $error_array = array();
-            $rslt = SearchModel::index($order_data_all,$email,$phone,$dbh);
-                $error_array = $rslt[0];
-                $temp_asin = $rslt[1];
-                $temp_order = $rslt[2];
-                $email = $rslt[3];
-                $phone = $rslt[4];
-                $purchase_date = $rslt[5];
-            
+            $rslt = SearchModel::index($order_data_all, $email, $phone, $dbh);
+            $error_array = $rslt[0];
+            $temp_asin = $rslt[1];
+            $temp_order = $rslt[2];
+            $email = $rslt[3];
+            $phone = $rslt[4];
+            $purchase_date = $rslt[5];
+
             if (in_array("false", $error_array)) {
                 //echo "<script type='text/javascript'>window.location.href = 'products.php?id=" . $temp_asin[0] . "&otherid=" . $temp_order[0] . "&email=" . $email . "&phone=" . $phone . "&name=" . $firstname . "';</script>";
-                ?><!--change--> <?php
                 //tesing for data storing session purpose for calling api only once                      
 ////$url_ar= explode("/", $_SERVER['REQUEST_URI']);
 ////if($url_ar[1] == 'search'):
@@ -108,9 +99,8 @@ class SearchController {
                 header("Location:../products/index/" . $temp_asin[0] . "/" . $temp_order[0] . "/" . $email . "/" . $phone . "/" . $firstname);
             } else {
                 //echo "<script type='text/javascript'>window.location.href = 'step_2_3.php?otherid=" . $temp_order[0] . "&other=" . $purchase_date . "&asin=" . $temp_asin[0] . "';</script>";
-                ?><!--change--> <?php
                 //        header("Location: step_2_3.php?otherid=" . $temp_order[0] . "&other=" . $purchase_date . "&asin=" . $temp_asin[0] . "");//change [S-E] comment
-                header("Location:../not-eligible/index/" . $temp_order[0] . "/" . $purchase_date."/".$temp_asin[0]);
+                header("Location:../not-eligible/index/" . $temp_order[0] . "/" . $purchase_date . "/" . $temp_asin[0]);
                 exit;
             }
         } else {

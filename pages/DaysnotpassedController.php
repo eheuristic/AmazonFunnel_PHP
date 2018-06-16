@@ -22,6 +22,7 @@ class DaysnotpassedController {
         }
         $order_id = isset($_SESSION['order_id']) ? $_SESSION['order_id'] : '';
         $asin = isset($_SESSION['asin']) ? $_SESSION['asin'] : '';
+//        view
         require_once 'pages/15daysnotpassed/index.php';
         ?>
         <script type="text/javascript">
@@ -76,7 +77,6 @@ class DaysnotpassedController {
             }
         </script> 
         <?php
-
         return $this->title;
     }
 

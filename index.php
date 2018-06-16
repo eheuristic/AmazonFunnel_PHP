@@ -1,5 +1,6 @@
 
 <?php
+
 //tesing for data storing session purpose for calling api only once                      
 //$url_ar= explode("/", $_SERVER['REQUEST_URI']);
 //if($url_ar[1] == 'products'):
@@ -42,6 +43,7 @@ endif;
 
 
 <?php include_once 'pages/layout/header.php'; ?>
+
 <script>
 //tesing for data storing session purpose for calling api only once                      
 //    var firstTime = localStorage.getItem("first_time");
@@ -55,12 +57,16 @@ endif;
 //        console.log(window.first_time);
 //    }
 </script>     
+
 <?php require_once ("config/router.php"); ?>
-<?php if ($url_array[1] == "index" || $url_array[1] == null): else: include_once 'pages/layout/footer.php';
-endif; ?>
+
+<?php
+if ($url_array[1] == "index" || $url_array[1] == null): else: include_once 'pages/layout/footer.php';
+endif;
+?>
+
 
 <!--change title per page-->
 <script type="text/javascript">
     document.title = "<?php echo $title; ?>";
-
 </script>

@@ -1,12 +1,9 @@
-
-
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=2"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>index.css?ver=1">
 <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700" rel="stylesheet" type="text/css"/>
-<?php
-//    include BASE_PATH . '/libs/header-content.php';
-include BASE_PATH . '/libs/progress-bar.php';
-?>
+
+<?php include BASE_PATH . '/libs/progress-bar.php'; ?>
+
 <div class = "row">
     <div class = "col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 col-xs-12  ">
         <div class = "wait" style = "font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 20px; line-height: 22px; color:#b6e000; padding-top: 100px;">
@@ -30,9 +27,3 @@ include BASE_PATH . '/libs/progress-bar.php';
         </div>
     </div>
 </div>
-
-<?php // include_once BASE_PATH . "/libs/footer.php";?>
-    <?php
-// Get form submitted value (Get method)
-
-    

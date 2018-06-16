@@ -1,10 +1,10 @@
 <?php
 //exit;
 //include_once BASE_PATH.'config/main.php';
-//if (session_status() == PHP_SESSION_NONE) {
-//    session_start();
-//}
-include '../config/main.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+//include '../config/main.php';
 
 $action = $_POST['action'];
 
@@ -26,6 +26,10 @@ if($action=='product_data'){
     $_SESSION['promo_id']=$_POST['promo_id'];
     $_SESSION['delivery_date']= strtotime($_POST['delivery_date']);
     $_SESSION['purchase_date']= strtotime($_POST['purchase_date']);
+    echo '<pre>';
+        print_r($_SESSION);
+        echo '</pre>';
+        exit;
     //return true;
 }
 elseif($action=='rating'){

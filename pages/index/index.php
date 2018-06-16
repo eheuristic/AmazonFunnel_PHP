@@ -1,21 +1,15 @@
 <!--remove css-->
-    <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>index.css?ver=6">
-    
-<?php echo ($is_mobile == "true") ? "<style> body{background-size: 100% 144% !important;} </style>" : ""; ?>
-<?php 
-//session_destroy();
-//session_start();
+<link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>index.css?ver=6">
 
-//include BASE_PATH . '/libs/header-content.php'; ?>
+<?php echo ($is_mobile == "true") ? "<style> body{background-size: 100% 144% !important;} </style>" : ""; ?>
+
 <style type="text/css">
 
     @-ms-viewport{
         width: device-width;
     }
 
-    <?php
-    if ($is_mobile == "false") {
-        ?>
+    <?php if ($is_mobile == "false") { ?>
         body {
             margin-left: 0px;
             margin-top: 0px;
@@ -26,9 +20,7 @@
             background-repeat:no-repeat;
             /*background-size: 100%; //added*/
         }
-        <?php
-    } else {
-        ?>
+    <?php } else { ?>
         body {
             margin-left: 0px;
             margin-top: 0px;
@@ -38,9 +30,7 @@
             background-position:top;
             background-repeat:no-repeat;
         }
-        <?php
-    }
-    ?>
+    <?php } ?>
 
     a:link {
         color: #462F29;
@@ -167,22 +157,19 @@
 
 </style>
 
-<?php
-if ($is_mobile == 'false') {
-
-    ?>
+<?php if ($is_mobile == 'false') { ?>
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
             <td align="center" valign="middle" style="background:white;"><table width="1000" border="0">
                     <tr>
-                        <td width="743" rowspan="2" valign="bottom"><img src="<?= BASE_URL."images/" ?>logo-header-01.png" width="399" height="81" /></td>
-                        <td width="39" height="40" align="center" valign="bottom" style="font-family:arial; font-size:18px; color:#462f28;"><img src="<?= BASE_URL."images/" ?>phone.png" width="30" height="30" /></td>
+                        <td width="743" rowspan="2" valign="bottom"><img src="<?= BASE_URL . "images/" ?>logo-header-01.png" width="399" height="81" /></td>
+                        <td width="39" height="40" align="center" valign="bottom" style="font-family:arial; font-size:18px; color:#462f28;"><img src="<?= BASE_URL . "images/" ?>phone.png" width="30" height="30" /></td>
                         <td width="204" align="left" valign="bottom" style="text-align:left; font-family:arial; font-size:18px; color:#462f28 ;">
                             <a href="tel:844-987-FREE">844-987-FREE</a>
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" valign="middle" style="font-family:arial; font-size:18px; color:#462f28 ;"><img src="<?= BASE_URL."images/" ?>email.png" width="30" height="30" /></td>
+                        <td align="center" valign="middle" style="font-family:arial; font-size:18px; color:#462f28 ;"><img src="<?= BASE_URL . "images/" ?>email.png" width="30" height="30" /></td>
                         <td width="204" align="center" valign="middle" style="text-align:right; font-family:arial; font-size:18px; color:#462f28 ;">
                             <a href="mailto:info@potentorganics.com" target="_top">info@potentorganics.com</a>
                         </td>
@@ -196,10 +183,8 @@ if ($is_mobile == 'false') {
                         <td width="436" height="74" align="center" style="text-align:center; font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-size:40px; color:#462f28; font-weight: 900; line-height:50px; text-transform: uppercase; padding-bottom:10px;">Get a Free Bottle<br/>of Potent Organics*</td>
                     </tr>
                     <tr>
-                        <td rowspan="3" align="center" valign="middle" style="
-                            padding-top:0px;
-                            padding-bottom:0px;
-                            "><table width="680" border="0" cellpadding="0">
+                        <td rowspan="3" align="center" valign="middle" style="padding-top:0px; padding-bottom:0px;">
+                            <table width="680" border="0" cellpadding="0">
                                 <tr>
                                     <td><table width="660" border="0" align="center">
                                             <tr>
@@ -210,11 +195,10 @@ if ($is_mobile == 'false') {
                                                 <td align="center" valign="middle"><div>
                                                         <!--change-->
                                                         <form action="/search" method="POST">
-                                                        <!--<form action="search.php">-->
-
                                                             <input type="text" id="phone" name="phone" placeholder="Phone Number" required="" pattern="\d*" title="Only 0-9 digit allowed." />
 
                                                             <input type="email" id="email" title="Ex: abc@example.com" name="email" placeholder="Email Address" required="">
+
                                                             <input type="submit" value="Get My Free Bottle" />
                                                         </form>
                                                     </div></td>
@@ -250,9 +234,7 @@ if ($is_mobile == 'false') {
                 </table></td>
         </tr>
     </table>
-    <?php
-} else {
-    ?>
+<?php } else { ?>
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
             <td height="415" style="background: url( ); background-position: top; background-attachment:fixed; padding-top: 0px; padding-bottom:0px;"> 
@@ -325,9 +307,7 @@ if ($is_mobile == 'false') {
                 </table></td>
         </tr>
     </table>
-    <?php
-}
-?>   
+<?php } ?>   
 <center>
     <div class="vert-align">
         <p class="headline">Copyright © 2017 Potent Organics. All Rights Reserved.</p>
@@ -339,8 +319,8 @@ if ($is_mobile == 'false') {
 //    if (window_width <= 1000)
 //    {
 //        $('.responsive_hide').hide();
-        //            $('#img-head-mob').show();
-        //            $('#img-head-desk').hide();
+    //            $('#img-head-mob').show();
+    //            $('#img-head-desk').hide();
 //    }
     //        if(window_width > 1000)
     //        {

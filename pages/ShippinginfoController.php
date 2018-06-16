@@ -13,6 +13,11 @@ class ShippinginfoController {
     public function index() {
         $is_mobile = $this->is_mobile;
 
+        include BASE_PATH . "/libs/MailChimp.php";
+
+        $url_array = explode("/", $_SERVER['REQUEST_URI']);
+        $_SESSION['like'] = isset($_SESSION['like']) ? $_SESSION['like'] : $url_array[12];
+        $_SESSION['review'] = isset($_SESSION['review']) ? $_SESSION['review'] : urldecode($url_array[13]);
 //error_reporting(0);
 
         $order_id = isset($_SESSION['order_id']) ? $_SESSION['order_id'] : '';
@@ -31,37 +36,19 @@ class ShippinginfoController {
         $State = isset($_SESSION['StateOrRegion']) ? strtoupper($_SESSION['StateOrRegion']) : '';
         $PostalCode = isset($_SESSION['PostalCode']) ? $_SESSION['PostalCode'] : '';
         $review = isset($_SESSION['review']) ? $_SESSION['review'] : '';
-//        $review = "asdf";
         $rating = isset($_SESSION['rating']) ? $_SESSION['rating'] : '';
         $like = isset($_SESSION['like']) ? $_SESSION['like'] : '';
-//        $like = "set";
-        
-
         /* if (empty($PostalCode) || empty($City) || empty($AddressLine1) || empty($lastname) || empty($phone) || empty($order_id) || empty($asin) || empty($name) || empty($email) || empty($purchasedate)) { */
         if (empty($order_id) || empty($asin) || empty($email) || empty($purchasedate)) {
 //    echo "<script type='text/javascript'>window.location.href = 'error.php?error=3';</script>";
-            echo "<script type='text/javascript'>window.location.href = '../errors/index/3';</script>";
-            
+            echo "<script type='text/javascript'>window.location.href = '" . BASE_URL . "errors/index/3';</script>";
         }
 
         if (empty($promo_id1)) {
             $promo_id1 = '-';
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $order_id = (isset($_POST['order_id']) && !empty($_POST['order_id'])) ? $_POST['order_id'] : $_SESSION['order_id'];
             $asin = (isset($_POST['asin']) && !empty($_POST['asin'])) ? $_POST['asin'] : $_SESSION['asin'];
             $name = (isset($_POST['name']) && !empty($_POST['name'])) ? $_POST['name'] : $_SESSION['name'];
@@ -82,24 +69,21 @@ class ShippinginfoController {
 // CHECK IF ALREADY APPLY FOR BOTTLE (SAME ORDER)
 //23-09-2017 START
             $days_ago = date('Y-m-d', strtotime('+15 days', strtotime($purchasedate)));
-            
             if ($purchasedate < strtotime($days_ago)) {
-//        change
                 echo "<script type='text/javascript'>window.location.href = '../15-days-not-passed/index/" . $order_id . "/" . strtotime($purchasedate) . "';</script>";
-//echo "<script type='text/javascript'>window.location.href = '15-days-not-passed.php';</script>";
+                //echo "<script type='text/javascript'>window.location.href = '15-days-not-passed.php';</script>";
             }
 
-//if (empty($country) || empty($zipcode) || empty($city) || empty($address_line_1) || empty($lastname) || empty($phone) || empty($order_id) || empty($asin) || empty($name) || empty($email) || empty($purchasedate)) {
+            //if (empty($country) || empty($zipcode) || empty($city) || empty($address_line_1) || empty($lastname) || empty($phone) || empty($order_id) || empty($asin) || empty($name) || empty($email) || empty($purchasedate)) {
             if (empty($order_id) || empty($asin) || empty($email) || empty($purchasedate)) {
-//        echo "<script type='text/javascript'>window.location.href = 'error.php?error=3';</script>";
-//        change
-                echo "<script type='text/javascript'>window.location.href = '../errors/index/3';</script>";
+                //        echo "<script type='text/javascript'>window.location.href = 'error.php?error=3';</script>";
+                echo "<script type='text/javascript'>window.location.href = '" . BASE_URL . "errors/index/3';</script>";
             }
-          
+
             if (!empty($like) && !empty($review)) {
                 global $dbh;
                 $data_review = array();
-//  $data_review['like'] = $dbh->sqlsafe($like);
+                //  $data_review['like'] = $dbh->sqlsafe($like);
                 $data_review['review'] = $dbh->sqlsafe($review);
                 $data_review['rating'] = $dbh->sqlsafe($like);
                 $data_review['buyer_email_id'] = $dbh->sqlsafe($email);
@@ -108,17 +92,18 @@ class ShippinginfoController {
                 $data_review['asin'] = $dbh->sqlsafe($asin);
                 $data_review['created_at'] = $dbh->sqlsafe(date('Y-m-d h:i:s'));
 
-//                $dbh->insert('review_rating', $data_review);
                 $dbh->insert('review_rating', $data_review);
             }
-                
+
+
 //23-09-2017 END
             global $dbh;
             $data = array();
+
             $selc = "SELECT * FROM promo1 WHERE order_id='" . $order_id . "' AND mail='" . $email . "' AND product_id='" . $product_id . "'";
             $allcat = $dbh->select($selc);
             if (count($allcat) > 0) {
-                echo "<script type='text/javascript'>window.location.href = '".BASE_URL."not-eligible/index/" . $order_id . "/" . $purchasedate . "/" . $asin . "';</script>";
+                echo "<script type='text/javascript'>window.location.href = '" . BASE_URL . "not-eligible/index/" . $order_id . "/" . $purchasedate . "/" . $asin . "';</script>";
                 exit;
             }
             $data['fullname'] = $dbh->sqlsafe($name);
@@ -132,7 +117,7 @@ class ShippinginfoController {
             $data['country'] = $dbh->sqlsafe($country);
             $data['email'] = $dbh->sqlsafe($email);
             $data['created_at'] = $dbh->sqlsafe(date('Y-m-d h:i:s'));
-
+//            $dbh->insert('shipping_address', $data);
             $dbh->insert('shipping_address', $data);
             ShippinginfoModel::insert_data($purchasedate, $shipped_date, $order_id, $email, $asin, $name, $product_id, $promo_id1, $phone); // INSERT INTO TABLES (orders, promo1)
 // Add this customer to our maichimp list for sending followup emails
@@ -157,45 +142,43 @@ class ShippinginfoController {
 //print_r($result);
 // show thank you page
 
-            echo "<script type='text/javascript'>window.location.href ='../thankyou/index/" . $asin . "';</script>";
+            echo "<script type='text/javascript'>window.location.href ='" . BASE_URL . "thankyou/index/" . $asin . "';</script>";
         }
-
-
         ?>
 
-        
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <?php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <?php
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
         include BASE_PATH . "/libs/headcodes.php";

@@ -2,9 +2,6 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>thankyou.css?ver=1"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=1"/>
 
-
-
-
         <style>
             #bottle_margin img{
                 width: 120px !important;
@@ -24,7 +21,6 @@
                 display: inline;
             }
         </style>
-                <?php // include BASE_PATH . '/libs/header-content.php'; ?>
 
         <div class="col-12 text-center thank-text">
             Thank you! You all set now!
@@ -79,37 +75,37 @@
         
         <div class="container">
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                <a target="_blank" href="https://www.amazon.com/L-Arginine-Essential-Amino-Vegetarian-Capsules/dp/B00PP8DVKS?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/L'Arginine.jpg" width="180" height="180"/></a><br/>
+                <a target="_blank" href="https://www.amazon.com/L-Arginine-Essential-Amino-Vegetarian-Capsules/dp/B00PP8DVKS?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/L'Arginine.jpg" width="180" height="180"/></a><br/>
                 <span id="margin_text">L-Arginine
 </span>
             </div>
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                <a target="_blank" href="https://www.amazon.com/Potent-Organics-Caralluma-Fimbriata-Extract/dp/B00NAYKLMA?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/Caralluma.jpg" width="180" height="180"/></a><br/>
+                <a target="_blank" href="https://www.amazon.com/Potent-Organics-Caralluma-Fimbriata-Extract/dp/B00NAYKLMA?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/Caralluma.jpg" width="180" height="180"/></a><br/>
                 <span id="margin_text">Caralluma Fimbriata 1200 mg
 </span>
             </div>
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                <a target="_blank" href="https://www.amazon.com/Bentonite-Cleanse-Bloating-Constipation-Energy/dp/B00PLCR1TK?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/Colon-Detox.jpg" width="180" height="180"/></a><br/>
+                <a target="_blank" href="https://www.amazon.com/Bentonite-Cleanse-Bloating-Constipation-Energy/dp/B00PLCR1TK?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/Colon-Detox.jpg" width="180" height="180"/></a><br/>
                 <span id="margin_text">Colon Detox
 </span>
             </div>
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                <a target="_blank" href="https://www.amazon.com/Potent-Organics-Burpless-Optimized-430mg-180/dp/B01AQQ90YY?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/Omega-3.jpg" width="180" height="180"/></a><br/>
+                <a target="_blank" href="https://www.amazon.com/Potent-Organics-Burpless-Optimized-430mg-180/dp/B01AQQ90YY?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/Omega-3.jpg" width="180" height="180"/></a><br/>
                 <span id="margin_text">Omega-3 860EPA/430DHA
 </span>
             </div>
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                <a target="_blank" href="https://www.amazon.com/Conjugated-Linoleic-Acid-Supplement-Metabolism/dp/B00PM1HSUW?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/CLA.jpg" width="180" height="180"/></a><br/>
+                <a target="_blank" href="https://www.amazon.com/Conjugated-Linoleic-Acid-Supplement-Metabolism/dp/B00PM1HSUW?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/CLA.jpg" width="180" height="180"/></a><br/>
                 <span id="margin_text">CLA
 </span>
             </div>
             <!--            <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                            <a href="https://www.amazon.com/Potent-Organics-Chlorella-Broken-Powder/dp/B00PPBS81M?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/B00PPBS81M.jpg" width="180" height="180"/></a><br/>
+                            <a href="https://www.amazon.com/Potent-Organics-Chlorella-Broken-Powder/dp/B00PPBS81M?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/B00PPBS81M.jpg" width="180" height="180"/></a><br/>
                             <span id="margin_text">Potent-Organics-Chlorella-Broken-Powder</span>
                         </div>-->
 
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                <a target="_blank" href="https://www.amazon.com/Potent-Organics-Phytoceramides-Ceramides-Strength/dp/B00IP0E0JE?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="../images/products1/Phytoceramides.jpg" width="180" height="180"/></a><br/>
+                <a target="_blank" href="https://www.amazon.com/Potent-Organics-Phytoceramides-Ceramides-Strength/dp/B00IP0E0JE?m=A3IQVSGI7Y7CBO&s=merchant-items&ie=UTF8&qid=1511767877"><img src="<?= IMG_URL ?>/products1/Phytoceramides.jpg" width="180" height="180"/></a><br/>
                 <span id="margin_text">Phytoceramids</span>
             </div>
 
@@ -119,16 +115,13 @@
 
             <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
                 <a href=""><img id="img_hover" src="<?= IMG_URL ?>products1/10off.jpg" width="120" height="180"/></a><br/>
-                <span id="margin_text">Coupon Code - 6HJZ9UPY
-</span>
+                <span id="margin_text">Coupon Code - 6HJZ9UPY</span>
             </div>
 
         </div>
         <!--    <div class="row">
                 <div class="col-md-1 col-lg-1 col-sm-6 col-xs-12 text-center" id="bottle_margin">
-                        <a href=""><img id="img_hover" src="../images/products1/10off.jpg" width="120" height="180"/></a><br/>
+                        <a href=""><img id="img_hover" src="<?= IMG_URL ?>/products1/10off.jpg" width="120" height="180"/></a><br/>
                         
                     </div>
             </div>-->
-<?php // include_once BASE_PATH."/libs/footer.php"; ?>
-<!--<script src="jquery.min.js"></script>-->

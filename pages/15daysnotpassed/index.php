@@ -2,8 +2,6 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>15-days-not-passed.css"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=1"/>
 
-
-<?php // include BASE_PATH . '/libs/header-content.php'; ?>
 <?php include BASE_PATH . '/libs/progress-bar.php'; ?>
 <div class="row">
 
@@ -48,14 +46,12 @@
         </div>
     </div>
 </div>
-<?php // include_once BASE_PATH . "/libs/footer.php"; ?>
 
 <style type="text/css">
     body {
         margin-left: 0px;
         margin-top: 0px;
     }
-
     .error {
         font-family:Lato, Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: 900; font-size: 16px; line-height: 22px; color: #FF4040; padding-top: 10px; padding-bottom:10px;
     }

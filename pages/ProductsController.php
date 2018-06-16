@@ -57,27 +57,19 @@ class ProductsController {
 
         $request->setBuyerEmail($email);
         $order_data_all = invokeListOrders($service, $request);
-//        // remove
-//                                                                                                            echo '<pre>';
-//                                                                                                            echo $order_data_all['status'];
-//                                                                                                            echo '</pre>';
-//                                                                                                            exit;
+
         if (isset($order_data_all['status'])) {
-            //echo "<script type='text/javascript'>window.location.href = 'error.php?error=1';</script>";
             //    header("Location: error.php?error=1");
             header("Location:" . BASE_URL . "errors/index/1");
-//            echo "error";
             exit;
-        } else {
-            
         }
-        
-            $rslt = ProductsModel::getProductData($order_data_all,$temp_order_array,$email,$allPro);
-            $product_data = $rslt[0];
-           
+
+        $rslt = ProductsModel::getProductData($order_data_all, $temp_order_array, $email, $allPro);
+        $product_data = $rslt[0];
+
         if (count($product_data) <= 0) {
             //echo "<script type='text/javascript'>window.location.href = 'step_2_3.php';</script>";
-            header("Location:".BASE_URL."not-eligible");
+            header("Location:" . BASE_URL . "not-eligible");
             exit;
         }
 
@@ -85,6 +77,7 @@ class ProductsController {
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
         include BASE_PATH . "/libs/headcodes.php";
+//        VIEW
         require_once 'pages/products/index.php';
         ?>
         <script>
@@ -129,7 +122,7 @@ class ProductsController {
                 phone = '<?php echo $phone1; ?>';
                 console.log(purchase_date);
                 //        change
-                $.post("/libs/ajax.php", {'action': 'product_data', 'phone': phone, 'user_name': user_name, 'email': email, 'asin': asin, 'order_id': order_id, 'product_id': product_id, 'product_name': product_name, 'promo_id': promo_id, 'delivery_date': delivery_date, 'purchase_date': purchase_date})
+                $.post("libs/ajax.php", {'action': 'product_data', 'phone': phone, 'user_name': user_name, 'email': email, 'asin': asin, 'order_id': order_id, 'product_id': product_id, 'product_name': product_name, 'promo_id': promo_id, 'delivery_date': delivery_date, 'purchase_date': purchase_date})
                         .done(function (data) {
                             console.log(data);
                         });
@@ -195,9 +188,9 @@ class ProductsController {
                         x.src = a[i + 2];
                     }
             }
-        </script> <?php
+        </script> 
+<?php
         return $this->title;
     }
 
 }
-
