@@ -1,24 +1,6 @@
 
 <?php
 
-//tesing for data storing session purpose for calling api only once                      
-//$url_ar= explode("/", $_SERVER['REQUEST_URI']);
-//if($url_ar[1] == 'products'):
-//    session_start();
-//    echo '<pre>';
-//    echo var_dump($_SESSION);
-//    echo '</pre>';
-//                if(isset($_SESSION['order_data_all'])):
-//                    echo "<script>alert('true');</script>";
-//                elseif(isset($_SESSION['customer_details'])):
-//                    echo "<script>alert('true');</script>";
-//                else:
-////                    $order_data_all = $_SESSION['customer_details']['order_data_all'];
-//                    echo "<script>alert('false');</script>";
-//                endif;
-//                exit;
-//endif;
-
 const BASE_PATH = __DIR__;
 require_once 'config/main.php';
 

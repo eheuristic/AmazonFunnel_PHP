@@ -33,6 +33,8 @@ class SearchModel {
 
     public function index($order_data_all, $email, $phone, $dbh) {
         $i = 0; //added reference data
+        $order_id = [];
+       
         foreach ($order_data_all->ListOrdersResult->Orders->Order as $key => $value) {
             $i++;
             $data = array();
@@ -43,14 +45,13 @@ class SearchModel {
                 include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Model/ListOrderItemsRequest.php';
                 include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Samples/ListOrderItemsSample.php';
 
+                array_push($order_data, $order_data->AmazonOrderId);
 
                 $request->setAmazonOrderId($order_data->AmazonOrderId); // 05-09-2017
-//                            $_SESSION['request_amazon_order_id'] = $request;
+    //                            $_SESSION['request_amazon_order_id'] = $request;
 
                 $promotional_data_all = invokeListOrderItems($service, $request);
-//                            $_SESSION['order_promational_data_all'] = $request;
-
-
+                $promotional_data_all_array[$i] = $promotional_data_all;
                 if (count($promotional_data_all->ListOrderItemsResult) > 0) {
                     $date = new DateTime($order_data->PurchaseDate); // GET PURCHASE
 
@@ -128,6 +129,7 @@ class SearchModel {
                 exit;
             }
         }// END FOREACH LOOP
+
 
         return [
             $error_array,

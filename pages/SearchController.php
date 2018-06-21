@@ -19,6 +19,7 @@ class SearchController {
         require_once 'pages/search/index.php';
 
         $firstname = @$_POST['firstname'];
+
 //                $firstname;
 //                nl2br("\n");
         $lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
@@ -58,13 +59,14 @@ class SearchController {
         include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Samples/ListOrdersSample.php';
         include_once BASE_PATH . '/libs/MarketplaceWebServiceOrders/Model/GetOrderResult.php';
         $request->setBuyerEmail($email);
-
+        
         //$order_data_all = ;
         $_SESSION['order_data_all'] = invokeListOrders($service, $request);
         $order_data_all = $_SESSION['order_data_all'];
 
         $last_order = count($order_data_all->ListOrdersResult->Orders->Order);
-
+        
+        
         if ($last_order > 0) {
 
             //declare
@@ -78,25 +80,9 @@ class SearchController {
             $purchase_date = $rslt[5];
 
             if (in_array("false", $error_array)) {
-                //echo "<script type='text/javascript'>window.location.href = 'products.php?id=" . $temp_asin[0] . "&otherid=" . $temp_order[0] . "&email=" . $email . "&phone=" . $phone . "&name=" . $firstname . "';</script>";
-                //tesing for data storing session purpose for calling api only once                      
-////$url_ar= explode("/", $_SERVER['REQUEST_URI']);
-////if($url_ar[1] == 'search'):
-//    echo '<pre>';
-//    echo var_dump($_SESSION);
-//    echo '</pre>';
-//                if(isset($_SESSION['order_data_all'])):
-//                    echo "<script>alert('true');</script>";
-//                elseif(isset($_SESSION['customer_details'])):
-//                    echo "<script>alert('true');</script>";
-//                else:
-////                    $order_data_all = $_SESSION['customer_details']['order_data_all'];
-//                    echo "<script>alert('false');</script>";
-//                endif;
-//                exit;
-////endif;
-                //        header("Location:../products.php?id=" . $temp_asin[0] . "&otherid=" . $temp_order[0] . "&email=" . $email . "&phone=" . $phone . "&name=" . $firstname . "");//change [S-E] comment
-                header("Location:../products/index/" . $temp_asin[0] . "/" . $temp_order[0] . "/" . $email . "/" . $phone . "/" . $firstname);
+                echo  "<script>window.location = '".BASE_URL."products/index/" . $temp_asin[0] . "/" . $temp_order[0] . "/" . $email . "/" . $phone . "/" . $firstname."';</script>";
+                exit;
+//                header("Location:".BASE_URL."products/index/" . $temp_asin[0] . "/" . $temp_order[0] . "/" . $email . "/" . $phone . "/" . $firstname);
             } else {
                 //echo "<script type='text/javascript'>window.location.href = 'step_2_3.php?otherid=" . $temp_order[0] . "&other=" . $purchase_date . "&asin=" . $temp_asin[0] . "';</script>";
                 //        header("Location: step_2_3.php?otherid=" . $temp_order[0] . "&other=" . $purchase_date . "&asin=" . $temp_asin[0] . "");//change [S-E] comment
@@ -114,6 +100,7 @@ class SearchController {
             header("Location:../re-enter-email/index/" . $firstname . "/" . $phone);
             exit;
         }
+
         ?>
         <script type="text/javascript">
             function MM_swapImgRestore() { //v3.0

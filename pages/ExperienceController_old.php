@@ -11,35 +11,41 @@ class ExperienceController {
 
     public function index() {
         $is_mobile = $this->is_mobile;
+
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
         include BASE_PATH . "/libs/headcodes.php";
 
-        $order_id = isset($_GET['otherid']) ? $_GET['otherid'] : '';
-        $email = isset($_GET['email']) ? $_GET['email'] : '';
-        $phone1 = isset($_GET['phone']) ? $_GET['phone'] : '';
-        $name1 = isset($_GET['name']) ? $_GET['name'] : '';
-        //$asin = isset($_GET['id']) ? $_GET['id'] : '';
+        $order_id = isset($_POST['otherid']) ? $_POST['otherid'] : '';
+        $email = isset($_POST['email']) ? $_POST['email'] : '';
+        $phone1 = isset($_POST['phone']) ? $_POST['phone'] : '';
+        $name1 = isset($_POST['name']) ? $_POST['name'] : '';
+
 
         $email = (isset($_SESSION['email']) && empty($email)) ? $_SESSION['email'] : $email;
         $order_id = (isset($_SESSION['order_id']) && empty($order_id)) ? $_SESSION['order_id'] : $order_id;
         $asin = isset($_SESSION['asin']) ? $_SESSION['asin'] : '';
-        $shipped_date = isset($_GET['sdate']) ? $_GET['sdate'] : '';
-        $purchasedate = isset($_GET['pdate']) ? $_GET['pdate'] : '';
-        $promoid = isset($_GET['promoid']) ? $_GET['promoid'] : '';
-        $productid = isset($_GET['productid']) ? $_GET['productid'] : '';
+        $shipped_date = isset($_POST['sdate']) ? $_POST['sdate'] : '';
+        $purchasedate = isset($_POST['pdate']) ? $_POST['pdate'] : '';
+        $promoid = isset($_POST['promoid']) ? $_POST['promoid'] : '';
+        $productid = isset($_POST['productid']) ? $_POST['productid'] : '';
         $desc = isset($_SESSION['review']) ? $_SESSION['review'] : '';
         $like = isset($_SESSION['like']) ? $_SESSION['like'] : '';
         $rating = isset($_SESSION['rating']) ? $_SESSION['rating'] : '';
         $firsttime = isset($_SESSION['firsttime']) ? $_SESSION['firsttime'] : '-';
+
+        
+        
         ?>
+
         <?php include BASE_PATH . '/libs/progress-bar.php'; ?>
+
         <div class="row text-center" id="rating" style='margin-right:0px !important;'>
             <div class="col-lg-1 col-lg-offset-2 col-md-12 col-sm-12">
                 <?php
                 $img = IMG_URL . 'products/.png';
 
-                if (file_exists(BASE_PATH . '/images/products/' . $asin . '.png')) {
+                if (file_exists(IMG_URL . 'products/' . $asin . '.png')) {
                     $img = IMG_URL . 'products/' . $asin . '.png';
                     ?>
                     <img class='pro_img' src="<?php echo $img; ?>" width="300" class="aligncenter size-medium wp-image-15551" />
@@ -50,16 +56,16 @@ class ExperienceController {
                     <img class='pro_img' src="<?php echo $img; ?>" height="300" width="300" class="aligncenter size-medium wp-image-15551" />
                     <?php
                 }
-                
+//                view
                 require_once 'pages/experience/index.php';
                 ?> 
 
-<script type="text/javascript">
+                <script type="text/javascript">
 
                     var rbt_value = '';
                     var satisfied_btn_value = '';
                     var describe_value = '';
-                    
+
                     jQuery("#myrating").rateYo("option", "rating", <?= isset($_SESSION['like_val']) ? !empty($_SESSION['like_val']) ? $_SESSION['like_val'] : 0 : 0 ?>);
 
                     var fewSeconds = 10;
@@ -189,7 +195,7 @@ class ExperienceController {
         //                console.log(star_val);
                                 var satisfied_btn_value = star_val;
         //            console.log("tttttttgkfdg"+satisfied_btn_value);
-                                jQuery.post("<?= BASE_URL ?>libs/ajax.php", {'action': 'rating', 'review': describe_value, 'like': star_val})
+                                jQuery.post("libs/ajax.php", {'action': 'rating', 'review': describe_value, 'like': satisfied_btn_value})
                                         .done(function (data) {
                                             if (satisfied_btn_value > 3)
                                             {
@@ -284,7 +290,6 @@ class ExperienceController {
                     }
                 </script>
                 <?php
+                return $this->title;
             }
-
         }
-        

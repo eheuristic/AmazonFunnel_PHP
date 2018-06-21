@@ -3,6 +3,7 @@
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>progress-bar.css?ver=1"/>
 <link rel="stylesheet" type="text/css" href="<?= CSS_URL ?>experience.css?ver=3"/>
 </div>
+
 <div class="col-lg-6 col-lg-offset-1 col-md-12 col-sm-12" style='padding-right:0px;'>
     <div class="col-lg-12" id="sub_title">
         Share Your Experience with Us!
@@ -70,7 +71,6 @@
                     precision: 1,
                     rating: 0, });
                 jQuery("#myrating").rateYo().on("rateyo.set", function (e, data1) {
-                    alert("hl");
                     jQuery.post("libs/ajax.php", {'action': 'star_like', 'like_val': data1.rating})
                             .done(function (data) {
                                 // jQuery('#amazont_btn').empty();

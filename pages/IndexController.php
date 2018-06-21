@@ -19,7 +19,9 @@ class IndexController {
         //$this->title = "Potent "; // to set title per method
         include BASE_PATH . "/libs/hotjar.php";
         include BASE_PATH . "/libs/fb-chat.php";
-
+        
+        
+        
         require_once 'pages/index/index.php';
         return $this->title;
     }

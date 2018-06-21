@@ -24,7 +24,7 @@
                     }
                     if (empty($product_data[$c]['asin']))
                         continue;
-                    if (file_exists(IMG_URL . 'products/' . $product_data[$c]['asin'] . '.png')) {
+                    if (file_exists(BASE_PATH . '/images/products/' . $product_data[$c]['asin'] . '.png')) {
                         $img = IMG_URL . 'products/' . $product_data[$c]['asin'] . '.png';
                         ?>
                         <div class="col-lg-<?= $class ?> col-md-12 col-sm-12">

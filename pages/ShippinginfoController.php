@@ -43,7 +43,6 @@ class ShippinginfoController {
 //    echo "<script type='text/javascript'>window.location.href = 'error.php?error=3';</script>";
             echo "<script type='text/javascript'>window.location.href = '" . BASE_URL . "errors/index/3';</script>";
         }
-
         if (empty($promo_id1)) {
             $promo_id1 = '-';
         }
@@ -80,6 +79,7 @@ class ShippinginfoController {
                 echo "<script type='text/javascript'>window.location.href = '" . BASE_URL . "errors/index/3';</script>";
             }
 
+            
             if (!empty($like) && !empty($review)) {
                 global $dbh;
                 $data_review = array();
@@ -91,7 +91,7 @@ class ShippinginfoController {
                 $data_review['order_id'] = $dbh->sqlsafe($order_id);
                 $data_review['asin'] = $dbh->sqlsafe($asin);
                 $data_review['created_at'] = $dbh->sqlsafe(date('Y-m-d h:i:s'));
-
+                
                 $dbh->insert('review_rating', $data_review);
             }
 

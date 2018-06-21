@@ -99,7 +99,6 @@ $serviceUrl = "https://mws.amazonservices.com/Orders/2013-09-01";
       //global $dbh;
       try {
         $response = $service->ListOrders($request);
-
         //echo ("Service Response\n");
         //echo ("=============================================================================\n");
 

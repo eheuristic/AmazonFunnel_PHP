@@ -1,11 +1,11 @@
 <?php
-error_reporting(0);
+ error_reporting(0);
 
 //Baseurl
 const BASE_URL = "http://amazonfunnel_latest.local/";
-const CSS_URL = "http://amazonfunnel_latest.local/css/";
-const JS_URL = "http://amazonfunnel_latest.local/js/";
-//const IMG_URL = "http://amazonfunnel_latest.local/images/";
+const CSS_URL = BASE_URL."css/";
+const JS_URL = BASE_URL."js/";
+//const IMG_URL = BASE_URL."images/";
 const IMG_URL = "/images/";
 const SITE_PATH = "/";
 define('SITE_SRC', SITE_PATH . 'libs/');
@@ -19,10 +19,10 @@ const DB_USERNAME = "root";
 const DB_PASSWORD = "";
 const DB_NAME = "special1_db";
 //@session start
-ob_start();
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
 //included files
 include_once BASE_PATH . '\config\class.db.php';
 include_once BASE_PATH . '\config\Mobile_Detect.php';
